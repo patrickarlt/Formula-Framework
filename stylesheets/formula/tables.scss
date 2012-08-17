@@ -1,0 +1,70 @@
+table {
+	@include leader(1);
+	@include trailer(1);
+	@include border-radius(4px);
+	width: 100%;
+	th,td{
+		padding: $font-unit / 2;
+	}
+	td {
+		@include adjust-font-size-to(14px);
+	}
+	th {
+		@include adjust-font-size-to(18px);
+		font-family: $table-header-font;
+		text-align: left;
+	}
+	tfoot, thead {
+		&.strong {
+			background: $lightest-gray;
+			th,td {
+				border-color: $lighter-gray;
+			}
+			th {
+				@include apply-side-rhythm-border(bottom, 1px, .5, $font-unit);
+			}
+			td {
+				@include apply-side-rhythm-border(top, 1px, .5, $font-unit);
+			}
+		}
+	}
+	tfoot {
+		td {
+			@include adjust-font-size-to(18px);
+			font-family: $table-header-font;
+			font-weight:700;
+		}
+	}
+
+	caption {
+		@extend small;
+		text-align:left;
+		color: $gray;
+		caption-side: bottom;
+	}
+
+	// @TODO - Sortable Headers
+
+	&.bordered {
+		background: $white;
+		th, td {
+			@include rhythm-borders(1px, .5, $font-unit);
+			border-color: $lighter-gray;
+		}
+	}
+	&.striped {
+		tbody {
+			tr:nth-child(even) {
+				background:$lightest-gray;
+			}
+		}
+	}
+	&.hover-rows {
+		tbody {
+			tr:hover {
+				background: $light-blue;
+			}
+		}
+	}
+}
+

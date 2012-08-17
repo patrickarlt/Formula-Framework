@@ -1,0 +1,190 @@
+input[type="submit"], .btn, button {
+	@include border-radius(4px);
+	@include rhythm-borders(1px, .35, 18px, solid);
+	@include button-style($button-default-background, $button-default-border-color, $button-default-text-color, $button-default-text-shadow);
+	@include box-shadow($button-shadow);
+	border-width:1px;
+	padding-left: .5em;
+	padding-right: .5em;
+	font-family: $button-font;
+	color: $white;
+	
+	// states --------------------------------------------------------------------
+	&:hover {
+		@include box-shadow(none);
+		@include button-style($button-default-hover-background, $button-default-hover-border-color, $button-default-hover-text-color, $button-default-hover-text-shadow);	
+		text-decoration:none;
+    color:$white;
+	}
+
+	&:disabled, &.disabled {
+		@include opacity(.5);
+		&:hover {
+			cursor: default;
+		}
+	}
+
+	&.full-width {
+		@include box-sizing(border-box);
+		width: 100%;
+	}
+
+	&.block {
+		text-align: center;
+		display:block;
+	}
+
+	// styles --------------------------------------------------------------------
+	&.primary {
+		@include button-style($button-primary-background, $button-primary-border-color, $button-primary-text-color, $button-primary-text-shadow);
+		&:hover {
+			@include button-style($button-primary-hover-background, $button-primary-hover-border-color, $button-primary-hover-text-color, $button-primary-hover-text-shadow);	
+		}
+	}
+
+	&.secondary {
+		@include button-style($button-secondary-background, $button-secondary-border-color, $button-secondary-text-color, $button-secondary-text-shadow);
+		&:hover {
+			@include button-style($button-secondary-hover-background, $button-secondary-hover-border-color, $button-secondary-hover-text-color, $button-secondary-hover-text-shadow);	
+		}
+	}
+
+	&.submit {
+		@include button-style($button-secondary-background, $button-secondary-border-color, $button-secondary-text-color, $button-secondary-text-shadow);
+		&:hover {
+			@include button-style($button-secondary-hover-background, $button-secondary-hover-border-color, $button-secondary-hover-text-color, $button-secondary-hover-text-shadow);	
+		}
+	}
+	
+	@if $include-tertiary-button {
+		&.tertiary {
+			@include button-style($button-secondary-background, $button-secondary-border-color, $button-secondary-text-color, $button-secondary-text-shadow);
+			&:hover {
+				@include button-style($button-secondary-hover-background, $button-secondary-hover-border-color, $button-secondary-hover-text-color, $button-secondary-hover-text-shadow);	
+			}
+		}
+	}
+	
+	@if $include-add-button {
+		&.add {
+			@include button-style($button-secondary-background, $button-secondary-border-color, $button-secondary-text-color, $button-secondary-text-shadow);
+			&:hover {
+				@include button-style($button-secondary-hover-background, $button-secondary-hover-border-color, $button-secondary-hover-text-color, $button-secondary-hover-text-shadow);	
+			}
+		}
+	}
+	
+	@if $include-danger-button {
+		&.danger {
+			@include button-style($button-danger-background, $button-danger-border-color, $button-danger-text-color, $button-danger-text-shadow);
+			&:hover {
+				@include button-style($button-danger-hover-background, $button-danger-hover-border-color, $button-danger-hover-text-color, $button-danger-hover-text-shadow);	
+			}
+		}
+	}
+
+	@if $include-delete-button {
+		&.delete {
+			@include button-style($button-danger-background, $button-danger-border-color, $button-danger-text-color, $button-danger-text-shadow);
+			&:hover {
+				@include button-style($button-danger-hover-background, $button-danger-hover-border-color, $button-danger-hover-text-color, $button-danger-hover-text-shadow);	
+			}
+		}
+	}
+	
+	@if $include-info-button {
+		&.info {
+			@include button-style($button-danger-background, $button-danger-border-color, $button-danger-text-color, $button-danger-text-shadow);
+			&:hover {
+				@include button-style($button-danger-hover-background, $button-danger-hover-border-color, $button-danger-hover-text-color, $button-danger-hover-text-shadow);	
+			}
+		}
+	}
+	
+	@if $include-edit-button {
+		&.edit {
+			@include button-style($button-danger-background, $button-danger-border-color, $button-danger-text-color, $button-danger-text-shadow);
+			&:hover {
+				@include button-style($button-danger-hover-background, $button-danger-hover-border-color, $button-danger-hover-text-color, $button-danger-hover-text-shadow);	
+			}
+		}
+	}
+	
+	@if $include-light-button {
+		&.light {
+			@include button-style($button-light-background, $button-light-border-color, $button-light-text-color, $button-light-text-shadow);
+			&:hover {
+				@include button-style($button-light-hover-background, $button-light-hover-border-color, $button-light-hover-text-color, $button-light-hover-text-shadow);	
+			}
+		}
+	}
+	
+	@if $include-dark-button {
+		&.dark {
+			@include button-style($button-dark-background, $button-dark-border-color, $button-dark-text-color, $button-dark-text-shadow);
+			&:hover {
+				@include button-style($button-dark-hover-background, $button-dark-hover-border-color, $button-dark-hover-text-color, $button-dark-hover-text-shadow);	
+			}
+		}
+	}
+
+	&.trasparent {
+		background: transparent;
+		border-color: transparent;
+		color: $link-color;
+		&:hover {
+			color: $link-hover;
+		}
+	}
+	
+	// sizes ---------------------------------------------------------------------
+	&.x-small {
+		@include adjust-font-size-to(12px);	
+		border-width:1px;
+	}
+
+	&.small {
+		@include adjust-font-size-to(14px);
+		border-width:1px;
+	}
+
+	&.large {
+		@include adjust-font-size-to(18px);	
+	}
+
+	&.x-large {
+		font-weight:700;
+		@include adjust-font-size-to(24px);	
+	}
+
+}
+
+// button groups ---------------------------------------------------------------
+.button-group {
+	@include clearfix();
+	input[type="submit"], .btn, button {
+		@include border-radius(0px);
+		border-left-width:0px;
+		display:block;
+		float:left;
+	}
+
+	:first-child{
+		@include border-top-left-radius(4px);
+		@include border-bottom-left-radius(4px);
+		border-left-width:1px;
+	}
+	
+	:last-child {
+		@include border-top-right-radius(4px);
+		@include border-bottom-right-radius(4px);
+	}
+}
+
+// form inputs -----------------------------------------------------------------
+input[type="submit"] {
+	@include button-style($button-submit-background, $button-submit-border-color, $button-submit-text-color, $button-submit-text-shadow);
+	&:hover {
+		@include button-style($button-submit-hover-background,$button-submit-hover-border-color, $button-submit-hover-text-color, $button-submit-hover-text-shadow);	
+	}
+}

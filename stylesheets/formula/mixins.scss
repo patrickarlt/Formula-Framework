@@ -1,0 +1,203 @@
+@mixin show {
+  display: block !important;
+  visibility: visible;  
+}
+
+@mixin hide {
+  display: none !important;
+  visibility: hidden;
+}
+
+@mixin visually-hidden { 
+  border: 0; clip: 
+  rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  &.focusable:active, &.focusable:focus  {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+  } 
+}
+
+@mixin invisible {
+  visibility: hidden;
+}
+
+
+/* Helper for responsive design */
+/* From : https://gist.github.com/2361408 */
+@mixin respond-to($type, $m: max-width) {
+  @if $type == handheld {
+    @media screen and (max-width: 767px) {
+      @content;
+    }
+  } @else if $type == webkit {
+    @media screen and (-webkit-min-device-pixel-ratio: 0) {
+      @content;
+    }
+  } @else if $type == nonhandheld {
+    @media screen and (min-width: 769px) {
+      @content;
+    }
+  } @else {
+    @media screen and ($m: $type) {
+      @content;
+    }
+  }
+}
+
+@function num-to-word($num) {
+  $count:1;
+  @each $word in one,
+                 two,
+                 three,
+                 four,
+                 five,
+                 six,
+                 seven,
+                 eight,
+                 nine,
+                 ten,
+                 eleven,
+                 twelve,
+                 thirteen,
+                 fourteen,
+                 fifteen,
+                 sixteen,
+                 seventeen,
+                 eighteen,
+                 nineteen,
+                 twenty,
+                 twentyone,
+                 twentytwo,
+                 twentythree,
+                 twentyfour{
+    @if ($count == $num) { @return $word; }
+    $count: $count + 1;
+  }
+  @warn "Could not convert #{$num} to a word. Useage `num-to-word(8);`";
+  @return "invalid";
+}
+
+@mixin button-style($background, $borderColor, $textColor, $textShadow){
+  @include background($background);  
+  border-color: $borderColor;
+  color: $textColor;
+  text-shadow: $textShadow;
+}
+
+@mixin box-style($background, $borderColor, $textColor, $textShadow) {
+  @include button-style($background, $borderColor, $textColor, $textShadow);
+}
+
+@mixin image-replace($url, $width, $height, $background-color:transparent){
+	display:block;
+	width: $width;
+	height: $height;
+  text-indent:-9999em;
+	background: $background-color url($url) no-repeat 0 0;
+	overflow:hidden;
+}
+
+@mixin size($width, $height){
+	width: $width;
+	height: $height;
+}
+
+@mixin square($size){
+	@include size($size, $size);
+}
+
+@mixin position($type, $top:auto, $left:auto, $bottom:auto, $right:auto){
+	position: $type;
+	top: $top;
+	left: $left;
+	bottom: $bottom;
+	right: $right;
+}
+
+// Add arrows to an element
+@mixin arrow($direction: "down", $size: 6px, $color: $black, $position: false){
+  &:after {
+    @include square(0);
+    content: "";
+    text-indent: -9999em;
+    display: block;
+    position:absolute;
+    border:$size solid transparent;
+    @if $direction == "up" {
+      margin-left:-($size);
+      border-bottom: $color;
+      border-top: none;
+    }
+    @if $direction == "down" {   
+      margin-left:-($size);
+      border-top-color: $color;
+      border-bottom: none;
+    }
+    @if $direction == "left" {
+      margin-top:-($size);
+      border-left-color: $color;
+      border-right:none;
+    }
+    @if $direction == "right" {
+      margin-top:-($size);
+      border-right-color: $color;
+      border-left: none;
+    }
+    @if $position == "top" {
+      left: 50%;
+      top: -($size);
+      margin-left: -($size);
+    }
+    @if $position == "left" {   
+      left: -($size);
+      top: 50%;
+      margin-top:-($size);
+    }
+    @if $position == "bottom" {
+      bottom: -($size);
+      left: 50%;
+      margin-left:-($size);
+    }
+    @if $position == "right" {
+      right: -($size);
+      top: 50%;
+      margin-top:-($size);
+    }
+  }
+}
+
+/*
+<!DOCTYPE html>
+<!--[if IE 8]>  <html class="no-js ie ie8"> <![endif]-->
+<!--[if IE 9]>  <html class="no-js ie ie9"> <![endif]-->
+<!--[if !IE]>   <html class="no-js"> <!--<![endif]-->
+*/
+
+// IE mixins
+@mixin for-ie9(){
+  html.ie9 {
+    @content;
+  }
+}
+
+@mixin for-ie8(){
+  html.ie8 {
+    @content; 
+  }
+}
+
+@mixin for-ie(){
+  html.ie {
+    @content;
+  }
+}

@@ -1,0 +1,59 @@
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
+.clear {
+	clear:both;
+}
+
+.show {
+	@include show();
+}
+
+/* Hide from both screenreaders and browsers: h5bp.com/u */
+
+.hide {
+	@include hide();
+}
+
+/* Hide only visually, but have it available for screenreaders: h5bp.com/v */
+.visuallyhidden {
+	@include visually-hidden();
+}
+
+/* Hide visually and from screenreaders, but maintain layout */
+.invisible {
+	@include invisible;
+}
+
+/* show and hide helpers for responsive design */
+@include respond-to($tablet-wide) {
+	.hide-tablet-wide {
+		@include hide();
+	}
+	.show-tablet-landscape {
+		@include show();
+	}
+}
+
+@include respond-to($tablet-tall) {
+	.hide-tablet-tall {
+		@include hide();
+	}
+	.show-tablet-portrait {
+		@include show();
+	}
+}
+
+@include respond-to($phone) {
+.hide-phone {
+		@include hide();
+	}
+	.show-phone {
+		@include show();
+	}
+}

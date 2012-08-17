@@ -1,0 +1,47 @@
+body {
+	@include establish-baseline(16px);
+	background: $body-background;
+	color: $body-text-color;
+}
+
+// sticky footer ---------------------------------------------------------------
+@import "compass/layout/sticky-footer";
+@include sticky-footer($footer-height, "wrapper", "push", "footer");
+
+#page {
+	@if $fixed-header {
+		padding-top: $page-padding;
+	}
+}
+
+// header ----------------------------------------------------------------------
+#header {
+	@include clearfix();
+	@include background($header-background);
+	@include box-shadow($header-shadow);	
+	@if $fixed-header {
+		@include position(fixed, 0, 0, auto, 0);
+	}
+	border-bottom: $header-border-bottom;
+	height: $header-height;
+	overflow: visible;
+	z-index: 100;
+}
+
+// logo ------------------------------------------------------------------------
+.text-logo {
+	@include adjust-font-size-to($logo-text-size);
+	@include leader(0);
+	@include trailer(0);
+	line-height: $header-height;
+	float: left;
+	color: $logo-text-color;
+	padding-right: 1em;
+}
+
+// footer ----------------------------------------------------------------------
+#footer {
+	@include background($footer-background);
+	@include box-sizing(border-box);
+	border-top: $footer-border-top;
+}

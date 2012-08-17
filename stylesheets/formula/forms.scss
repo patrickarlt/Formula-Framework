@@ -1,0 +1,280 @@
+@mixin stacked-form(){
+	.label, span, legend {
+		@include adjust-font-size-to(16px);
+		display: block;
+		padding: 0;
+		text-align:left;
+		width:100%;
+	}
+	.input, .input-list {
+		@include pre(0);
+		padding:0;
+		clear:both;		
+	}
+	.actions {
+		@include pre(0);
+	}
+	fieldset {
+		> .field, .fields {
+			clear: both;
+			width: 100%;
+			margin-left:0;
+		}
+	}
+}
+
+// form ------------------------------------------------------------------------
+form {
+	.field {
+		@include trailer(1);
+		@include legacy-pie-clearfix();
+		clear: both;
+		display: block;
+		small {
+			@include adjust-font-size-to(12px);
+			color: $light-gray;
+			display: block;
+		}
+	}
+	
+	.input {
+		@include pre($label-span);	
+	}
+
+	legend, span {
+		@include column($label-span);
+		@include adjust-font-size-to(14px);
+		@include apply-side-rhythm-border(top, 0px, .25, 14px, solid);
+		text-align:right;
+	}
+
+	//adjacent fields ------------------------------------------------------------
+	fieldset {
+		@include trailer(.5);
+		border: none;
+		padding: 0;
+		margin: 0;
+		.field {
+			
+			@include pre(0);
+			clear: none;
+			label {
+				@include pre(0);
+				@include adjust-font-size-to(12px);
+				display: block;
+				color: $light-gray;
+			}
+		}
+		> .field {
+			@include pre($label-span);
+		}
+		.field, .fields {
+			@include trailer(.5);
+		}
+		.fields {
+			@include pre($label-span);
+			padding: 0;
+			width: auto;
+			&.two {
+				.field {
+					width:49%;
+					float: left;	
+					+ .field {
+						float: right;	
+					}
+				}
+			}
+			&.three {
+				.field {
+					width:31.5%;
+					float: left;
+				}
+				> .field:nth-child(2){
+					margin:0 2.5%;
+				}
+				> .field:last-child {
+					float:right;
+				}
+			}
+			&.four {
+				.field {
+					width:23.5%;
+					float: left;
+				}
+				.field:nth-child(1),.input:nth-child(2),.input:nth-child(3){
+					margin:0 1.75% 0 0;
+				}
+				.input:nth-child(3){
+					float:right;
+				}
+			}
+		}
+	}
+	
+	// input list ----------------------------------------------------------------
+
+	ul.input{
+		padding:0;
+		list-style: none;
+		position: relative;
+		top: .5em;
+		li {
+			@include clearfix();
+			margin:0;
+			label {
+				@include float(left);
+				line-height:24px;
+				margin: 0;
+			}
+			input {
+				float:left;
+			}
+		}
+	}
+	
+	// actions -------------------------------------------------------------------
+	.actions {
+		@include pre($label-span);
+		@include clearfix();
+		input[type="submit"], .btn, button {
+			float: left;
+			margin-right: 1em;
+		};
+	}
+
+	// stacked -------------------------------------------------------------------
+	@if $forms-stacked {
+		@include stacked-form();
+	} @else {
+		&.stacked {
+			@include stacked-form();
+		}
+	}
+
+	// single --------------------------------------------------------------------
+	&.single {
+		position: relative;
+		.field {
+			@include trailer(0);
+		}
+		input[type="submit"] {
+			@include rhythm-borders(1px, .25, 14px, solid);
+			@include adjust-font-size-to(14px);
+			@include box-shadow(none);
+			@include border-top-left-radius(0);
+			@include border-bottom-left-radius(0);
+			border: $field-border;
+			height: rhythm(1.5, 14px);
+			position:absolute;
+			padding-left:.75em;
+			padding-right:.75em;
+			margin-right: 0;
+			bottom: 0;
+			right: -1px;
+		}
+		.label, span {
+			@include visually-hidden();
+		}
+		.input {
+			margin: 0;
+		}
+	}
+	
+	// responsive forms ----------------------------------------------------------
+	@if not($forms-stacked){
+		@if $forms-respond-to {
+			@include respond-to($tablet-tall) {
+				@include stacked-form();
+			}
+		} @else {
+			&.responsive {
+				@include respond-to($tablet-tall) {
+					@include stacked-form();
+				}
+			}		
+		}
+	}
+}
+
+// full width inputs -----------------------------------------------------------
+input, select {
+	@include box-sizing(border-box);
+	width:100%;
+	&:focus {
+		outline: none;
+	}
+}
+
+// checkboxes and radio buttons ------------------------------------------------
+input[type="checkbox"], input[type="radio"] {
+	display:block;
+	margin:6px 4px 0 1px;
+	width:auto;
+}
+
+// input styles ----------------------------------------------------------------
+input[type="email"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="text"],
+input[type="url"],
+input[type="color"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+select, 
+textarea {
+	@include box-sizing(border-box);
+	@include box-shadow($field-shadow);
+	@include border-radius(3px);
+	@include rhythm-borders(1px, .25, 14px, solid);
+	@include adjust-font-size-to(14px);
+	border: $field-border;
+	height: rhythm(1.5, 14px);
+	&:focus {
+		border: $field-border-focus;
+		@include box-shadow(none);
+		outline:none;
+	}
+}
+
+// textarea --------------------------------------------------------------------
+textarea {
+	height: auto;
+	resize: none;
+	width: 100%;
+	&.medium {
+		height: 8em;
+	}
+	&.tall {
+		height: 16em;
+	}
+	.resizeable {
+		resize: both;
+	}
+}
+
+// select ----------------------------------------------------------------------
+select {
+	@include rhythm-borders(1px, .4, 14px, solid);
+	-webkit-appearance: menulist-button;
+	line-height:36px;
+  height: 36px;
+}
+
+// select and file inputs ------------------------------------------------------
+input[type="file"] {
+	font-size: 12px;
+	width:90%;
+	margin: 8px 0;
+}
+
+// submit ----------------------------------------------------------------------
+input[type="submit"] {
+	width: auto;
+}

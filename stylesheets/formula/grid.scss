@@ -1,0 +1,167 @@
+@function grid-calc($span){
+  @return percentage(($span / $total-columns));
+}
+
+// Mixin for base column styles
+@mixin column-style(){
+  @include box-sizing(border-box);
+  float: left;
+  padding: 0 $column-gutter/2;
+}
+
+// Mixin to calculate column width
+@mixin column-width($span){  
+  width: grid-calc($span);
+}
+
+// Mixin to create a column
+@mixin column($span){
+  @include column-style();
+  @include column-width($span);
+}
+
+// Mixin for the last column in a row
+@mixin last-column(){
+  float: right;
+}
+
+@mixin pre($amount){
+  margin-left: grid-calc($amount);
+}
+
+@mixin post($amount){
+  margin-right: grid-calc($amount);
+}
+
+// Contrainer setup
+@mixin container {
+  @include box-sizing(border-box);
+  margin: 0 auto;
+  max-width: $container-max;
+  padding: 0 $container-gutter;
+  width: $container-width;
+}
+
+.container {
+  @include container();
+  @if $debug-grids {
+    background: rgba(0,255,0,0.2);
+  }
+}
+
+.row {
+  @include legacy-pie-clearfix();
+  position: relative;
+  @if $debug-grids {
+    background: rgba(0,0,255,0.2);
+  }
+  .row { 
+    width: auto; 
+    max-width: none; 
+    min-width: 0; 
+    margin: 0 (-($column-gutter/4));
+  }
+  @include respond-to($phone){
+    &.respond-to-phone {
+      .column, .columns {
+        @include column(24);
+      }
+    }
+  }
+  @include respond-to($tablet-tall){
+    &.respond-to-tablet-tall {
+      .column, .columns {
+        @include column(24);
+      }
+    }
+  }
+  @include respond-to($tablet-wide){
+    &.respond-to-tablet-wide {
+      .column, .columns {
+        @include column(24);
+      }
+    }
+  }
+}
+
+.column, .columns {
+  @include column-style();
+
+  @if $debug-grids {
+    @include background-clip(content-box);
+    background: rgba(255,0,0,0.2);
+  }
+  &:last-child {
+    @include last-column();
+  }
+  &.left {
+    float: left;
+  }
+  &.center {
+    float: none;
+    margin: 0 auto;
+  }
+}
+
+@for $i from 1 through $total-columns {
+  .#{num-to-word($i)} { 
+    @include column-width($i); 
+  }  
+}
+
+@for $i from 1 through $total-columns - 1 {
+  .pre-#{num-to-word($i)} {
+    @include pre($i)
+  }
+  .post-#{num-to-word($i)} {
+    @include post($i)
+  }
+}
+
+img, object, embed, video{
+  max-width: 100%;
+  height: auto;
+}
+
+img {
+  -ms-interpolation-mode: bicubic; 
+}
+
+.grid {
+  .cell {
+    @include box-sizing(border-box);
+    float: left;
+    padding: $column-gutter/2;
+  }
+  &.two-up {
+    .cell {
+      @include column-width(12);
+    }
+  }
+  &.three-up {
+   .cell {
+      @include column-width(8);
+    } 
+  }
+  &.four-up {
+    .cell {
+      @include column-width(6);
+    }
+  }
+  &.six-up {
+    .cell {
+      @include column-width(4);
+    }
+  }
+  &.eight-up {
+    .cell {
+      @include column-width(3);
+    }
+  }
+  &.twelve-up {
+    .cell {
+      @include column-width(2);
+    }
+  }
+
+}
