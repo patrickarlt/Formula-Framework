@@ -54,6 +54,14 @@
   }
 }
 
+/* Helper for retina displays */
+/* From : https://gist.github.com/2361408 */
+@mixin retina-display() {
+  @media screen and (-webkit-min-device-pixel-ratio : 1.5), screen and (min-device-pixel-ratio : 1.5) {
+    @content;
+  }
+}
+
 @function num-to-word($num) {
   $count:1;
   @each $word in one,
@@ -124,55 +132,72 @@
 	right: $right;
 }
 
+@mixin arrow-base($size: 6px){
+  @include square(0);
+  content: "";
+  display: block;
+  border-width: $size;
+  border-style: solid;
+}
+
+@mixin arrow-color($color: $black){
+  border-color: $color;
+}
+
+@mixin arrow-direction($direction: "down") {
+  @if $direction == "up" {
+    border-left-color: transparent !important;
+    border-right-color: transparent !important;
+    border-top: none;
+  }
+  @if $direction == "down" {   
+    border-bottom: none;
+    border-left-color: transparent !important;
+    border-right-color: transparent !important;
+  }
+  @if $direction == "left" {
+    border-right:none;
+    border-top-color: transparent !important;
+    border-bottom-color: transparent !important;
+  }
+  @if $direction == "right" {
+    border-left: none;
+    border-top-color: transparent !important;
+    border-bottom-color: transparent !important;
+  }
+}
+
+@mixin arrow-position($size:6px, $position: false) {  
+  position: absolute;
+  @if $position == "above" {
+    left: 50%;
+    top: -($size);
+    margin-left: -($size);
+  }
+  @if $position == "left" {   
+    left: -($size);
+    top: 50%;
+    margin-top:-($size);
+  }
+  @if $position == "below" {
+    bottom: -($size);
+    left: 50%;
+    margin-left:-($size);
+  }
+  @if $position == "right" {
+    right: -($size);
+    top: 50%;
+    margin-top:-($size);
+  }
+}
+
 // Add arrows to an element
-@mixin arrow($direction: "down", $size: 6px, $color: $black, $position: false){
+@mixin arrow($direction: "down", $size: 6px, $color: red, $position: false){
   &:after {
-    @include square(0);
-    content: "";
-    text-indent: -9999em;
-    display: block;
-    position:absolute;
-    border:$size solid transparent;
-    @if $direction == "up" {
-      margin-left:-($size);
-      border-bottom: $color;
-      border-top: none;
-    }
-    @if $direction == "down" {   
-      margin-left:-($size);
-      border-top-color: $color;
-      border-bottom: none;
-    }
-    @if $direction == "left" {
-      margin-top:-($size);
-      border-left-color: $color;
-      border-right:none;
-    }
-    @if $direction == "right" {
-      margin-top:-($size);
-      border-right-color: $color;
-      border-left: none;
-    }
-    @if $position == "top" {
-      left: 50%;
-      top: -($size);
-      margin-left: -($size);
-    }
-    @if $position == "left" {   
-      left: -($size);
-      top: 50%;
-      margin-top:-($size);
-    }
-    @if $position == "bottom" {
-      bottom: -($size);
-      left: 50%;
-      margin-left:-($size);
-    }
-    @if $position == "right" {
-      right: -($size);
-      top: 50%;
-      margin-top:-($size);
-    }
+    @include arrow-base($size);
+    @include arrow-color($color);
+    @include arrow-direction($direction);
+    @include arrow-position($position);
   }
 }
 

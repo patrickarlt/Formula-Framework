@@ -1,35 +1,37 @@
-@function grid-calc($span){
+@function grid-calc($span) {
   @return percentage(($span / $total-columns));
 }
 
 // Mixin for base column styles
-@mixin column-style(){
+@mixin column-style() {
   @include box-sizing(border-box);
   float: left;
   padding: 0 $column-gutter/2;
 }
 
 // Mixin to calculate column width
-@mixin column-width($span){  
+@mixin column-width($span) {
   width: grid-calc($span);
 }
 
 // Mixin to create a column
-@mixin column($span){
+@mixin column($span) {
   @include column-style();
   @include column-width($span);
 }
 
 // Mixin for the last column in a row
-@mixin last-column(){
+@mixin last-column() {
   float: right;
 }
 
-@mixin pre($amount){
+// add space before a column
+@mixin pre($amount) {
   margin-left: grid-calc($amount);
 }
 
-@mixin post($amount){
+// add space after a column
+@mixin post($amount) {
   margin-right: grid-calc($amount);
 }
 
@@ -41,6 +43,11 @@
   padding: 0 $container-gutter;
   width: $container-width;
 }
+
+@mixin center-column {
+  float: none;
+  margin: 0 auto;
+};
 
 .container {
   @include container();
@@ -59,7 +66,8 @@
     width: auto; 
     max-width: none; 
     min-width: 0; 
-    margin: 0 (-($column-gutter/4));
+    margin-left: (-($column-gutter/4));
+    margin-right: (-($column-gutter/4));
   }
   @include respond-to($phone){
     &.respond-to-phone {
@@ -86,7 +94,6 @@
 
 .column, .columns {
   @include column-style();
-
   @if $debug-grids {
     @include background-clip(content-box);
     background: rgba(255,0,0,0.2);
@@ -98,8 +105,7 @@
     float: left;
   }
   &.center {
-    float: none;
-    margin: 0 auto;
+    @include center-column();
   }
 }
 
@@ -132,6 +138,9 @@ img {
     @include box-sizing(border-box);
     float: left;
     padding: $column-gutter/2;
+    &.fill {
+      width: 100% !important;
+    }
   }
   &.two-up {
     .cell {
@@ -163,5 +172,4 @@ img {
       @include column-width(2);
     }
   }
-
 }

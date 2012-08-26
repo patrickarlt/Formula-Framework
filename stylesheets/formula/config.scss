@@ -8,43 +8,44 @@ $legacy-support-for-mozilla: false;
 // Break Points ----------------------------------------------------------------
 $tablet-wide: 1024px;
 $tablet-tall: 768px;
-$phone: 480px;
+$phone:       480px;
 
 // Font Sizes ------------------------------------------------------------------
-$relative-font-sizing: true;
-$base-font-size: 16px;
-$base-line-height: 24px;
+$relative-font-sizing:  true;
+$base-font-size:        16px;
+$base-line-height:      24px;
 
 // Grid ------------------------------------------------------------------------
-$total-columns: 24;
-$container-width: 100%;
-$container-max: 90%;
-$container-gutter: 2em;
-$column-gutter: 2em;
+$total-columns:     24;
+$container-width:   100%;
+$container-max:     90%;
+$container-gutter:  2em;
+$column-gutter:     1em;
+$grid-classes:      false;
 
 // Debug -----------------------------------------------------------------------
 $debug-grids:         false;
 
 // Font Stacks -----------------------------------------------------------------
-$body-font:            "Helvetica Neue", Helvetica, Arial, sans-serif;
-$header-font:          $body-font;
-$button-font:          $header-font;
+$body-font:             "Helvetica Neue", Helvetica, Arial, sans-serif;
+$header-font:           $body-font;
+$button-font:           $header-font;
 $table-header-font:     $header-font;
 $definition-title-font: $header-font;
 $code-font:             Consolas, Monaco, 'Andale Mono', monospace;
 
 // Predefined Grays ------------------------------------------------------------
-$white:               #ffffff;
-$off-white:            hsl(0, 0, 98); // #fafafa
-$lightest-gray:        hsl(0, 0, 92); // ebebeb
-$lighter-gray:         hsl(0, 0, 80); // cccccc
-$light-gray:           hsl(0, 0, 65); // a6a6a6
-$gray:                hsl(0, 0, 50); // 808080
-$dark-gray:            hsl(0, 0, 35); // 595959
-$darker-gray:          hsl(0, 0, 20); // 333333
-$darkest-gray:         hsl(0, 0, 12); // 1f1f1f
-$off-black:            hsl(0, 0, 2);  // 050505
-$black:               #000000;
+$white:                 #ffffff;
+$off-white:             hsl(0, 0, 98); // #fafafa
+$lightest-gray:         hsl(0, 0, 92); // ebebeb
+$lighter-gray:          hsl(0, 0, 80); // cccccc
+$light-gray:            hsl(0, 0, 65); // a6a6a6
+$gray:                  hsl(0, 0, 50); // 808080
+$dark-gray:             hsl(0, 0, 35); // 595959
+$darker-gray:           hsl(0, 0, 20); // 333333
+$darkest-gray:          hsl(0, 0, 12); // 1f1f1f
+$off-black:             hsl(0, 0, 2);  // 050505
+$black:                 #000000;
 
 // Preset -colors ---------------------------------------------------------------
 $dark-blue:            #27adec;
@@ -59,8 +60,8 @@ $dark-red:             #de2c2c;
 $light-pink:           #ed54ba;
 $dark-pink:            #de3ea8;
 
-$light-purple:         #9253d5;
-$dark-purple:          #7641b0;
+$light-purple:         #887ab6;
+$dark-purple:          #6b5aa4;
 
 $light-yellow:         #e2cf1b;
 $dark-yellow:          #d3c223;
@@ -69,7 +70,7 @@ $light-green:          #89ce37;
 $dark-green:           #79b335;
 
 // Buttons ---------------------------------------------------------------------
-$button-shadow:         0 1px 2px rgba(0,0,0,0.1);
+$button-shadow:                       none;
 
 $button-default-background:           mix($lighter-gray, $light-gray, 50%) linear-gradient($lighter-gray, $light-gray);
 $button-default-border-color:         $light-gray;
@@ -89,202 +90,140 @@ $button-primary-hover-border-color:   $dark-blue;
 $button-primary-hover-text-color:     $button-primary-text-color;
 $button-primary-hover-text-shadow:    $button-primary-text-shadow;
 
-$button-secondary-background:         mix($light-green, $dark-green, 50%) linear-gradient($light-green, $dark-green);
-$button-secondary-border-color:       $dark-green;
+$button-secondary-background:         mix($light-purple, $dark-purple, 50%) linear-gradient($light-purple, $dark-purple);
+$button-secondary-border-color:       $dark-purple;
 $button-secondary-text-color:         $button-default-text-color;
 $button-secondary-text-shadow:        0 1px 0 transparentize($button-secondary-border-color, 0.5);
-$button-secondary-hover-background:   $dark-green;
-$button-secondary-hover-border-color: $dark-green;
+$button-secondary-hover-background:   $dark-purple;
+$button-secondary-hover-border-color: $dark-purple;
 $button-secondary-hover-text-color:   $button-default-text-color;
 $button-secondary-hover-text-shadow:  $button-secondary-text-shadow;
 
-$include-tertiary-button:             true;
-$button-tertiary-background:          mix($light-green, $dark-green, 50%) linear-gradient($light-green, $dark-green);
-$button-tertiary-border-color:        $dark-green;
-$button-tertiary-text-color:          $button-default-text-color;
-$button-tertiary-text-shadow:         0 1px 0 transparentize($button-tertiary-border-color, 0.5);
-$button-tertiary-hover-background:    $dark-green;
-$button-tertiary-hover-border-color:  $dark-green;
-$button-tertiary-hover-text-color:    $button-default-text-color;
-$button-tertiary-hover-text-shadow:   $button-tertiary-text-shadow;
+$button-light-background:             $off-white;
+$button-light-border-color:           $lighter-gray;
+$button-light-text-color:             $light-gray;
+$button-light-text-shadow:            none;
+$button-light-hover-background:       $lightest-gray;
+$button-light-hover-border-color:     $lighter-gray;
+$button-light-hover-text-color:       $light-gray;
+$button-light-hover-text-shadow:      none;
 
-$button-submit-background:            $button-primary-background;
-$button-submit-border-color:          $button-primary-border-color;
-$button-submit-text-color:            $button-primary-text-color;
-$button-submit-text-shadow:           $button-primary-text-shadow;
-$button-submit-hover-background:      $button-primary-hover-background;
-$button-submit-hover-border-color:    $button-primary-hover-border-color;
-$button-submit-hover-text-color:      $button-primary-hover-text-color;
-$button-submit-hover-text-shadow:     $button-primary-hover-text-shadow;
-
-$include-add-button:                    true;
-$button-Add-background:                $button-secondary-background;
-$button-Add-border-color:               $button-secondary-border-color;
-$button-Add-text-color:                 $button-secondary-text-color;
-$button-Add-text-shadow:                $button-secondary-text-shadow;
-$button-Add-hover-background:           $button-secondary-hover-background;
-$button-Add-hover-border-color:          $button-secondary-hover-border-color;
-$button-Add-hover-text-color:            $button-secondary-hover-text-color;
-$button-Add-hover-text-shadow:           $button-secondary-hover-text-shadow;
-
-$include-danger-button:                 true;
-$button-danger-background:             mix($light-red, $dark-red, 50%) linear-gradient($light-red, $dark-red);
-$button-danger-border-color:            $dark-red;
-$button-danger-text-color:              $button-default-text-color;
-$button-danger-text-shadow:             0 1px 0 transparentize($button-danger-border-color, 0.5);
-$button-danger-hover-background:        $dark-red;
-$button-danger-hover-border-color:       $dark-red;
-$button-danger-hover-text-color:         $button-default-text-color;
-$button-danger-hover-text-shadow:        $button-danger-text-shadow;
-
-$include-delete-button:                 true;
-$button-delete-background:             $button-danger-background;
-$button-delete-border-color:            $button-danger-border-color;
-$button-delete-text-color:              $button-danger-text-color;
-$button-delete-text-shadow:             $button-danger-text-shadow;
-$button-delete-hover-background:        $button-danger-hover-background;
-$button-delete-hover-border-color:       $button-danger-hover-border-color;
-$button-delete-hover-text-color:         $button-danger-hover-text-color;
-$button-delete-hover-text-shadow:        $button-danger-hover-text-shadow;
-
-$include-info-button:                   true;
-$button-info-background:               $button-primary-background;
-$button-info-border-color:              $button-primary-border-color;
-$button-info-text-color:                $button-primary-text-color;
-$button-info-text-shadow:               $button-primary-text-shadow;
-$button-info-hover-background:          $button-primary-hover-background;
-$button-info-hover-border-color:         $button-primary-hover-border-color;
-$button-info-hover-text-color:           $button-primary-hover-text-color;
-$button-info-hover-text-shadow:          $button-primary-hover-text-shadow;
-
-$include-edit-button:                   true;
-$button-edit-background:               $button-secondary-background;
-$button-edit-border-color:              $button-secondary-border-color;
-$button-edit-text-color:                $button-secondary-text-color;
-$button-edit-text-shadow:               $button-secondary-text-shadow;
-$button-edit-hover-background:          $button-secondary-hover-background;
-$button-edit-hover-border-color:         $button-secondary-hover-border-color;
-$button-edit-hover-text-color:           $button-secondary-hover-text-color;
-$button-edit-hover-text-shadow:          $button-secondary-hover-text-shadow;
-
-$include-light-button:                  true;
-$button-light-background:              $off-white;
-$button-light-border-color:             $lighter-gray;
-$button-light-text-color:               $light-gray;
-$button-light-text-shadow:              none;
-$button-light-hover-background:         $lightest-gray;
-$button-light-hover-border-color:        $lighter-gray;
-$button-light-hover-text-color:          $light-gray;
-$button-light-hover-text-shadow:         none;
-
-$include-dark-button:                   true;
-$button-dark-background:               $darker-gray;
-$button-dark-border-color:              $off-black;
-$button-dark-text-color:                $gray;
-$button-dark-text-shadow:               none;
-$button-dark-hover-background:          $off-black;
-$button-dark-hover-border-color:         $off-black;
-$button-dark-hover-text-color:           $gray;
-$button-dark-hover-text-shadow:          none;
+$button-dark-background:              $darker-gray;
+$button-dark-border-color:            $off-black;
+$button-dark-text-color:              $gray;
+$button-dark-text-shadow:             none;
+$button-dark-hover-background:        $off-black;
+$button-dark-hover-border-color:      $off-black;
+$button-dark-hover-text-color:        $gray;
+$button-dark-hover-text-shadow:       none;
 
 // Links -----------------------------------------------------------------------
 $link-color:              #1e547a;
 $link-hover:              #403e41;
 $disable-text-decoration: true;
 
-
 // Alerts ----------------------------------------------------------------------
 $alert-close-color: $white;
 
-$alert-default-background:            mix($lighter-gray, $light-gray, 50%) linear-gradient($lighter-gray, $light-gray);
-$alert-default-border-color:                    $light-gray;
-$alert-default-text-color:                      $white;
-$alert-default-text-shadow:                     0 -1px 0 $light-gray;
+$alert-default-background:            $off-white;
+$alert-default-border-color:          $lighter-gray;
+$alert-default-text-color:            $light-gray;
+$alert-default-text-shadow:           none;
 
-$alert-success-background:              mix($light-green, $dark-green, 50%) linear-gradient($light-green, $dark-green);
-$alert-success-border-color:             $dark-green;
-$alert-success-text-color:               $alert-default-text-color;
-$alert-success-text-shadow:              0 -1px 0 $dark-green;
+$alert-primary-background:            mix($light-blue, $dark-blue, 50%) linear-gradient($light-blue, $dark-blue);
+$alert-primary-border-color:          $dark-blue;
+$alert-primary-text-color:            $white;
+$alert-primary-text-shadow:           0 -1px 0 $light-blue;
 
-$alert-danger-background:               mix($light-red, $dark-red, 50%) linear-gradient($light-red, $dark-red);
-$alert-danger-border-color:              $dark-red;
-$alert-danger-text-color:                $alert-default-text-color;
-$alert-danger-text-shadow:               0 -1px 0 $dark-red;
+$alert-secondary-background:          mix($light-purple, $light-purple, 50%) linear-gradient($light-purple, $dark-purple);
+$alert-secondary-border-color:        $dark-purple;
+$alert-secondary-text-color:          $white;
+$alert-secondary-text-shadow:         0 -1px 0 $light-purple;
 
-$alert-info-background:                 mix($light-blue, $dark-blue, 50%) linear-gradient($light-blue, $dark-blue);
-$alert-info-border-color:                $dark-blue;
-$alert-info-text-color:                  $alert-default-text-color;
-$alert-info-text-shadow:                 0 -1px 0 $dark-blue;
+$alert-success-background:            mix($light-green, $dark-green, 50%) linear-gradient($light-green, $dark-green);
+$alert-success-border-color:          $dark-green;
+$alert-success-text-color:            $white;
+$alert-success-text-shadow:           0 -1px 0 $dark-green;
 
-$alert-notice-background:               mix($light-yellow, $dark-yellow, 50%) linear-gradient($light-yellow, $dark-yellow);
-$alert-notice-border-color:              $dark-yellow;
-$alert-notice-text-color:                $alert-default-text-color;
-$alert-notice-text-shadow:               0 -1px 0 $dark-yellow;
+$alert-danger-background:             mix($light-red, $dark-red, 50%) linear-gradient($light-red, $dark-red);
+$alert-danger-border-color:           $dark-red;
+$alert-danger-text-color:             $white;
+$alert-danger-text-shadow:            0 -1px 0 $dark-red;
 
 // Panels ----------------------------------------------------------------------
 $panelClose-color: $white;
 
-$panel-default-background:                     mix($lighter-gray, $light-gray, 50%) linear-gradient($lighter-gray, $light-gray);
-$panel-default-border-color:            $light-gray;
-$panel-default-text-color:              $white;
-$panel-default-text-shadow:             0 -1px 0 $light-gray;
+$panel-default-background:            $off-white;
+$panel-default-border-color:          $lighter-gray;
+$panel-default-text-color:            inherit;
+$panel-default-text-shadow:           none;
 
-$panel-success-background:          mix($light-green, $dark-green, 50%) linear-gradient($light-green, $dark-green);
-$panel-success-border-color:            $dark-green;
-$panel-success-text-color:              $panel-default-text-color;
-$panel-success-text-shadow:             0 -1px 0 $dark-green;
+$panel-primary-background:            mix($light-blue, $dark-blue, 50%) linear-gradient($light-blue, $dark-blue);
+$panel-primary-border-color:          $dark-blue;
+$panel-primary-text-color:            $white;
+$panel-primary-text-shadow:           0 -1px 0 $dark-blue;
 
-$panel-danger-background:          mix($light-red, $dark-red, 50%) linear-gradient($light-red, $dark-red);
-$panel-danger-border-color:            $dark-red;
-$panel-danger-text-color:              $panel-default-text-color;
-$panel-danger-text-shadow:             0 -1px 0 $dark-red;
+$panel-secondary-background:          mix($light-purple, $dark-purple, 50%) linear-gradient($light-purple, $dark-purple);
+$panel-secondary-border-color:        $dark-purple;
+$panel-secondary-text-color:          $white;
+$panel-secondary-text-shadow:         0 -1px 0 $dark-purple;
 
-$panel-info-background:          mix($light-blue, $dark-blue, 50%) linear-gradient($light-blue, $dark-blue);
-$panel-info-border-color:            $dark-blue;
-$panel-info-text-color:              $panel-default-text-color;
-$panel-info-text-shadow:             0 -1px 0 $dark-blue;
+$panel-success-background:            mix($light-green, $dark-green, 50%) linear-gradient($light-green, $dark-green);
+$panel-success-border-color:          $dark-green;
+$panel-success-text-color:            $white;
+$panel-success-text-shadow:           0 -1px 0 $dark-green;
 
-$panel-notice-background:          mix($light-yellow, $dark-yellow, 50%) linear-gradient($light-yellow, $dark-yellow);
-$panel-notice-border-color:            $dark-yellow;
-$panel-notice-text-color:              $panel-default-text-color;
-$panel-notice-text-shadow:             0 -1px 0 $dark-yellow;
+$panel-danger-background:             mix($light-red, $dark-red, 50%) linear-gradient($light-red, $dark-red);
+$panel-danger-border-color:           $dark-red;
+$panel-danger-text-color:             $white;
+$panel-danger-text-shadow:            0 -1px 0 $dark-red;
 
 // Inputs ----------------------------------------------------------------------
 $field-shadow:         0 1px 2px rgba(0, 0, 0, 0.10), inset 0 1px 2px rgba(0,0,0,0.10);
 $field-border:         1px solid $light-gray;
-$field-border-focus:    1px solid $dark-blue;
+$field-border-focus:   1px solid $dark-blue;
 
 // Forms -----------------------------------------------------------------------
-$label-span:           5;
+$label-span:           6;
 $forms-respond-to:     $tablet-tall;
 $forms-stacked:        false;
 
 // Body ------------------------------------------------------------------------
-$body-text-color:       #444;
+$body-text-color:      $darkest-gray;
 $body-background:      $off-white;
+$selection-color:      lighten($light-blue, 25);
 
 // Header ----------------------------------------------------------------------
 $header-height:        40px;
 $header-background:    mix($off-white, $white) linear-gradient($off-white, $white);
-$header-border-bottom: 1px solid $lighter-gray;
-$header-shadow:        0 1px 3px rgba(0,0,0,0.10);
+$header-border-bottom: 1px solid $light-gray;
+$header-shadow:        0 1px 3px rgba(0,0,0,0.25);
 $fixed-header:         true;
 $logo-text-size:       28px;
 $logo-text-color:      $gray;
 
 // Nav Menu --------------------------------------------------------------------
-$nav-dropdown-width:              160px;
-$nav-item-color:                  $light-gray;
-$nav-item-text-shadow:            0 1px 0 $white;
-$nav-dropdown-arrow:              $lighter-gray;
-$nav-dropdown-background:         $off-white;
-$nav-dropdown-top-border:         $header-border-bottom;
-$nav-dropdown-header:             $gray;
-$nav-dropdown-divider-top:        $lighter-gray;
-$nav-dropdown-divider-bottom:     $white;
-$nav-dropdown-item-color:         $gray;
-$nav-item-hover-background:       $lightest-gray;
-$nav-dropdown-item-hover-background: $lightest-gray;
+$nav-item-color:                      $light-gray;
+$nav-item-text-shadow:                0 1px 0 $white;
+$nav-item-hover-background:           linear-gradient($light-purple, $dark-purple);
+$nav-item-hover-color:                $white;
+$nav-item-active-background:          linear-gradient($light-blue, $dark-blue);
+$nav-item-active-color:               $white;
+$nav-divider-top:            $lighter-gray;
+$nav-divider-bottom:         $white;
+$nav-header-color:                 $gray;
+
+$dropdown-width:                  160px;
+$nav-dropdown-arrow:                  $lighter-gray;
+$dropdown-background:             $off-white;
+$dropdown-top-border:             $header-border-bottom;
+$dropdown-header-color:                 $gray;
+$dropdown-divider-top:            $lighter-gray;
+$dropdown-divider-bottom:         $white;
+$dropdown-item-color:             $gray;
+$dropdown-item-hover-background:  $nav-item-hover-background;
+$dropdown-item-hover-color:       $nav-item-hover-color;
+
 
 // Page ------------------------------------------------------------------------
 $page-padding:         $header-height;
@@ -292,7 +231,7 @@ $page-padding:         $header-height;
 // Footer ----------------------------------------------------------------------
 $footer-height:        72px;
 $footer-background:    linear-gradient($off-black, $darkest-gray);
-$footer-border-top:     1px solid $black;
+$footer-border-top:    1px solid $black;
 
 // Labels ----------------------------------------------------------------------
 $label-text-color:                    $white;

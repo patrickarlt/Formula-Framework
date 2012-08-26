@@ -1,203 +1,243 @@
 @mixin stacked-form(){
-	.label, span, legend {
-		@include adjust-font-size-to(16px);
-		display: block;
-		padding: 0;
-		text-align:left;
-		width:100%;
+	label {
+		clear:both;
+		text-align: left;
+		width: 100%;
 	}
-	.input, .input-list {
-		@include pre(0);
-		padding:0;
-		clear:both;		
+	.input {
+		@include column($total-columns);
+		@for $i from 1 through $total-columns {
+		  &.#{num-to-word($i)} { 
+		    @include column-width($i);
+		  }  
+		}
+		ul {
+			padding: 0;
+		}
 	}
 	.actions {
+		@include column($total-columns);
 		@include pre(0);
-	}
-	fieldset {
-		> .field, .fields {
-			clear: both;
-			width: 100%;
-			margin-left:0;
-		}
+		padding: 0;
 	}
 }
 
-// form ------------------------------------------------------------------------
 form {
-	.field {
+	.field, .fields, fieldset {
+		@extend .row;
 		@include trailer(1);
-		@include legacy-pie-clearfix();
-		clear: both;
-		display: block;
-		small {
-			@include adjust-font-size-to(12px);
-			color: $light-gray;
-			display: block;
-		}
 	}
-	
-	.input {
-		@include pre($label-span);	
-	}
-
-	legend, span {
+	label {
 		@include column($label-span);
 		@include adjust-font-size-to(14px);
-		@include apply-side-rhythm-border(top, 0px, .25, 14px, solid);
+		@include padding-leader(.25, 14px);
 		text-align:right;
+		height: rhythm(1.5, 14px);
 	}
-
-	//adjacent fields ------------------------------------------------------------
 	fieldset {
-		@include trailer(.5);
-		border: none;
-		padding: 0;
-		margin: 0;
-		.field {
-			
-			@include pre(0);
-			clear: none;
-			label {
-				@include pre(0);
-				@include adjust-font-size-to(12px);
-				display: block;
-				color: $light-gray;
-			}
-		}
-		> .field {
-			@include pre($label-span);
-		}
-		.field, .fields {
-			@include trailer(.5);
-		}
-		.fields {
-			@include pre($label-span);
-			padding: 0;
-			width: auto;
-			&.two {
-				.field {
-					width:49%;
-					float: left;	
-					+ .field {
-						float: right;	
-					}
-				}
-			}
-			&.three {
-				.field {
-					width:31.5%;
-					float: left;
-				}
-				> .field:nth-child(2){
-					margin:0 2.5%;
-				}
-				> .field:last-child {
-					float:right;
-				}
-			}
-			&.four {
-				.field {
-					width:23.5%;
-					float: left;
-				}
-				.field:nth-child(1),.input:nth-child(2),.input:nth-child(3){
-					margin:0 1.75% 0 0;
-				}
-				.input:nth-child(3){
-					float:right;
-				}
-			}
-		}
-	}
-	
-	// input list ----------------------------------------------------------------
-
-	ul.input{
-		padding:0;
-		list-style: none;
-		position: relative;
-		top: .5em;
-		li {
-			@include clearfix();
-			margin:0;
-			label {
-				@include float(left);
-				line-height:24px;
-				margin: 0;
-			}
-			input {
-				float:left;
-			}
-		}
-	}
-	
-	// actions -------------------------------------------------------------------
-	.actions {
-		@include pre($label-span);
 		@include clearfix();
-		input[type="submit"], .btn, button {
-			float: left;
-			margin-right: 1em;
-		};
+		@include box-sizing(border-box);
+		@include border-radius(3px);
+		@include rhythm-borders(1px, 1);
+		border: $field-border;
+		legend {
+			@include adjust-font-size-to(18px);
+			font-weight: 700;
+		}
+		.field:last-of-type {
+			@include trailer(0);
+		}
+	}
+	.input {
+		position: relative;
+		@include column($total-columns - $label-span);
+		@for $i from 1 through $total-columns {
+		  &.#{num-to-word($i)} { 
+		    @include column-width($i);
+		  }  
+		}
+
+		&.before {
+			.tooltip-wrapper {
+				left: 100%;
+			}
+		}
+		&.after {
+			.tooltip-wrapper {
+				right: 100%;
+			}
+		}
+
+		&.success, &.error {
+			.tooltip-content {
+				display: block;
+			}
+		}
+
+		&.error {
+			.tooltip-content {
+				background: $dark-red;
+				&:after {
+					@include arrow-color($dark-red);
+				}
+			}
+			input, select, textarea {
+				background: $light-red;
+				border-color: $dark-red;
+			}
+		}
+
+		&.success {
+			.tooltip-content {
+				background: $dark-green;
+				&:after {
+					@include arrow-color($dark-green);
+				}
+			}
+			input, select, textarea {
+				background: $light-green;
+				border-color: $dark-green;
+			}
+		}
+		input, select, textarea {
+			margin: 0;
+			width: 100%;
+		}
+
+		ul {
+			padding: 0;
+			margin: 0;
+			@include padding-leader(.25, 14px);
+			list-style: none;
+			li {
+				label {
+					float: none;
+					padding: 0;
+				}
+			}
+		}
+		small {
+			@include adjust-font-size-to(11px);
+			color: $gray;
+			label {
+				@include adjust-font-size-to(11px, 1, 10px);
+				float: none;
+				padding: 0;
+				margin: 0;
+				width: auto;
+			}
+		}
+	}
+
+	.prefix, .suffix {
+		padding-right: 0;
+		+ .prefix, + .suffix {
+			padding-left: 0;
+			padding-right: $column-gutter/2;
+		}
+		&.with-btn {
+			input[type="submit"], .btn, button {
+				@include box-shadow($field-shadow);
+				display: block;
+				width: 100%;
+			}
+		}
+		&.with-text {
+			span {
+				@include adjust-font-size-to(14px);
+				@include border-radius(4px);
+				@include box-sizing(border-box);
+				@include box-shadow($field-shadow);
+				@include rhythm-borders(1px, .25, 14px, solid);
+				background:$lightest-gray;
+				border: $field-border;
+				color: $gray;
+				display: block;
+				height: rhythm(1.5, 14px);
+				text-align: center;
+			}
+		}
+		input {
+			position: relative;
+			top: 0;
+		}
+	}	
+
+	.prefix {
+		&.with-text {
+			span {
+				@include border-right-radius(0);
+			}
+		}
+		&.with-btn {
+			input[type="submit"], .btn, button {
+				@include border-right-radius(0);
+				@include border-left-radius(4px);
+			}	
+		}
+		input {
+			@include border-left-radius(0);
+			border-left: none;
+			&:focus {
+				border-left: none;
+			}
+		}
+	}
+
+	.suffix {
+		&.with-text {
+			span {
+				@include border-left-radius(0);
+			}
+		}
+		&.with-btn {
+			input[type="submit"], .btn, button {
+				@include border-left-radius(0);
+				@include border-right-radius(4px);
+			}
+		}
+		input {
+			@include border-right-radius(0);
+			border-right: none;
+			&:focus {
+				border-right: none;
+			}
+		}
+	}
+
+	.actions {
+		@include column($total-columns - $label-span);
+		@include pre($label-span);
+		padding: 0 $column-gutter/4;
 	}
 
 	// stacked -------------------------------------------------------------------
 	@if $forms-stacked {
 		@include stacked-form();
-	} @else {
-		&.stacked {
-			@include stacked-form();
-		}
 	}
 
-	// single --------------------------------------------------------------------
-	&.single {
-		position: relative;
-		.field {
-			@include trailer(0);
-		}
-		input[type="submit"] {
-			@include rhythm-borders(1px, .25, 14px, solid);
-			@include adjust-font-size-to(14px);
-			@include box-shadow(none);
-			@include border-top-left-radius(0);
-			@include border-bottom-left-radius(0);
-			border: $field-border;
-			height: rhythm(1.5, 14px);
-			position:absolute;
-			padding-left:.75em;
-			padding-right:.75em;
-			margin-right: 0;
-			bottom: 0;
-			right: -1px;
-		}
-		.label, span {
-			@include visually-hidden();
-		}
-		.input {
-			margin: 0;
-		}
+	&.stacked {
+		@include stacked-form();
 	}
-	
+
 	// responsive forms ----------------------------------------------------------
 	@if not($forms-stacked){
 		@if $forms-respond-to {
 			@include respond-to($tablet-tall) {
 				@include stacked-form();
 			}
-		} @else {
-			&.responsive {
-				@include respond-to($tablet-tall) {
-					@include stacked-form();
-				}
-			}		
 		}
 	}
+
+	&.responsive {
+		@include respond-to($tablet-tall) {
+			@include stacked-form();
+		}
+	}	
 }
 
 // full width inputs -----------------------------------------------------------
-input, select {
+input, select, textarea,  {
 	@include box-sizing(border-box);
 	width:100%;
 	&:focus {
@@ -207,9 +247,10 @@ input, select {
 
 // checkboxes and radio buttons ------------------------------------------------
 input[type="checkbox"], input[type="radio"] {
-	display:block;
-	margin:6px 4px 0 1px;
-	width:auto;
+	display: block;
+	margin: 5px 4px 0 1px !important;
+	width: auto !important;
+	float: left;
 }
 
 // input styles ----------------------------------------------------------------
@@ -231,15 +272,17 @@ select,
 textarea {
 	@include box-sizing(border-box);
 	@include box-shadow($field-shadow);
-	@include border-radius(3px);
+	@include border-radius(4px);
 	@include rhythm-borders(1px, .25, 14px, solid);
 	@include adjust-font-size-to(14px);
-	border: $field-border;
 	height: rhythm(1.5, 14px);
+	border: $field-border;
+	display: block;
 	&:focus {
 		border: $field-border-focus;
 		@include box-shadow(none);
 		outline:none;
+		outline-offset: 0;
 	}
 }
 
@@ -248,12 +291,6 @@ textarea {
 	height: auto;
 	resize: none;
 	width: 100%;
-	&.medium {
-		height: 8em;
-	}
-	&.tall {
-		height: 16em;
-	}
 	.resizeable {
 		resize: both;
 	}
