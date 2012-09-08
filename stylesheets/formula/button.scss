@@ -61,12 +61,19 @@ input[type="submit"], .btn, button {
 		}
 	}
 
-	&.trasparent {
+	&.transparent {
 		background: transparent;
 		border-color: transparent;
 		color: $link-color;
 		&:hover {
 			color: $link-hover;
+		}
+	}
+
+	&.clear {
+		background: transparent;
+		&:hover {
+			background: transparent;
 		}
 	}
 	
