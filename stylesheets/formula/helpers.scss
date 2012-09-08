@@ -15,18 +15,18 @@
 }
 
 .show {
-	@include show();
+	@include show;
 }
 
 /* Hide from both screenreaders and browsers: h5bp.com/u */
 
 .hide {
-	@include hide();
+	@include hide;
 }
 
 /* Hide only visually, but have it available for screenreaders: h5bp.com/v */
 .visuallyhidden {
-	@include visually-hidden();
+	@include visually-hidden;
 }
 
 /* Hide visually and from screenreaders, but maintain layout */
@@ -36,25 +36,25 @@
 
 /* show and hide helpers for responsive design */
 @include respond-to($tablet-wide) {
-	.hide-tablet-wide {
+	.hide-on-tablet-wide {
 		@include hide();
 	}
-	.show-tablet-landscape {
+	.show-on-tablet-landscape {
 		@include show();
 	}
 }
 
 @include respond-to($tablet-tall) {
-	.hide-tablet-tall {
+	.hide-on-tablet-tall {
 		@include hide();
 	}
-	.show-tablet-portrait {
+	.show-on-tablet-portrait {
 		@include show();
 	}
 }
 
 @include respond-to($phone) {
-.hide-phone {
+.hide-on-phone {
 		@include hide();
 	}
 	.show-phone {
