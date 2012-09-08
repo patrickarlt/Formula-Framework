@@ -1,72 +1,46 @@
 // headers ---------------------------------------------------------------------
 #{headers(all)} {
+	margin: 0;
 	font-family: $header-font;
+	@if not($header-style == "normal"){
+		font-weight: $header-style;
+	}
+	@if not($header-weight == "700"){
+		font-style: $header-weight;
+	}
 	&.divider {
 		border-color: $lighter-gray;
-	}
-	&.compact {
-		margin: 0;
-	}
-	&.compact-top {
-		margin-top: 0;
-	}
-	&.compact-bottom {
-		margin-bottom: 0;
-	}
-}
-
-hgroup {
-	#{headers(all)} {
-		&:first-child {
-			margin-bottom: 0;
-		}
-		&:last-child {
-			margin-top: 0;
-		}
 	}
 }
 
 h1 {
-	@include adjust-font-size-to(48px);
-	&.divider {
-		@include apply-side-rhythm-border(bottom, 1px, 0, 48px);
-	}
+	@include adjust-font-size-to($h1-size, $h1-lines);
+	@include header-extentions($h1-size, $h1-lines);
 }
 
 h2 {
-	@include adjust-font-size-to(36px);
-	&.divider {
-		@include apply-side-rhythm-border(bottom, 1px, 0, 36px);
-	}
+	@include adjust-font-size-to($h2-size, $h2-lines);
+	@include header-extentions($h2-size, $h2-lines);
 }
 
 h3 {
-	@include adjust-font-size-to(24px);
-	&.divider {
-		@include apply-side-rhythm-border(bottom, 1px, 0, 24px);
-	}
+	@include adjust-font-size-to($h3-size, $h3-lines);
+	@include header-extentions($h3-size, $h3-lines);
 }
 
 h4 {
-	@include adjust-font-size-to(18px);
-	&.divider {
-		@include apply-side-rhythm-border(bottom, 1px, 0, 18px);
-	}
+	@include adjust-font-size-to($h4-size, $h4-lines);
+	@include header-extentions($h4-size, $h4-lines);
 }
 
 h5 {
-	@include adjust-font-size-to(16px);
-	&.divider {
-		@include apply-side-rhythm-border(bottom, 1px, 0, 16px);
-	}
+	@include adjust-font-size-to($h5-size, $h5-lines);
+	@include header-extentions($h5-size, $h5-lines);
 }
 
 h6 {
-	@include adjust-font-size-to(16px);
-	color: $darker-gray;
-	&.divider {
-		@include apply-side-rhythm-border(bottom ,1px, 0, 16px);
-	}
+	@include adjust-font-size-to($h6-size, $h6-lines);
+	@include header-extentions($h6-size, $h6-lines);
 }
 
 // blockquote ------------------------------------------------------------------
@@ -82,14 +56,14 @@ blockquote {
 // paragraphs ------------------------------------------------------------------
 p {
 	@include leader(0);
-	@include trailer(1);
-	@include adjust-font-size-to(14px);
+	@include trailer(1, 14px);
+	@include adjust-font-size-to(14px, 1);
 	margin-top:0;
 	&.large {
-		@include adjust-font-size-to(18px);
+		@include adjust-font-size-to(18px, 1);
 	}
 	&.small {
-		@include adjust-font-size-to(13px);
+		@include adjust-font-size-to(13px, 1);
 	}
 }
 

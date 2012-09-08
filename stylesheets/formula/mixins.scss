@@ -31,6 +31,17 @@
   visibility: hidden;
 }
 
+@mixin header-extentions($size, $lines){
+  &.divider {
+    @include apply-side-rhythm-border(bottom, 1px, 0, $size);
+  }
+  &.leader {
+    @include leader($lines, $size);
+  }
+  &.trailer {
+    @include trailer($lines, $size);
+  }
+}
 
 /* Helper for responsive design */
 /* From : https://gist.github.com/2361408 */

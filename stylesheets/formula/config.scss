@@ -23,8 +23,27 @@ $container-gutter:  2em;
 $column-gutter:     1em;
 $grid-classes:      false;
 
-// Debug -----------------------------------------------------------------------
-$debug-grids:         false;
+//Header Sizes -----------------------------------------------------------------
+$header-style: normal;
+$header-weight: 700;
+
+$h1-size: 48px;
+$h1-lines: 2;
+
+$h2-size: 36px;
+$h2-lines: 2;
+
+$h3-size: 24px;
+$h3-lines: 2;
+
+$h4-size: 18px;
+$h4-lines: 1;
+
+$h5-size: 16px;
+$h5-lines: 1;
+
+$h6-size: 14px;
+$h6-lines: 1;
 
 // Font Stacks -----------------------------------------------------------------
 $body-font:             "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -68,6 +87,11 @@ $dark-yellow:          #d3c223;
 
 $light-green:          #89ce37;
 $dark-green:           #79b335;
+
+// Debug -----------------------------------------------------------------------
+$debug-grids:         false;
+$debug-baseline-grid: true;
+$debug-baseline-color: $lightest-gray;
 
 // Buttons ---------------------------------------------------------------------
 $button-shadow:                       none;
@@ -209,20 +233,20 @@ $nav-item-hover-background:           linear-gradient($light-purple, $dark-purpl
 $nav-item-hover-color:                $white;
 $nav-item-active-background:          linear-gradient($light-blue, $dark-blue);
 $nav-item-active-color:               $white;
-$nav-divider-top:            $lighter-gray;
-$nav-divider-bottom:         $white;
-$nav-header-color:                 $gray;
+$nav-divider-top:                     $lighter-gray;
+$nav-divider-bottom:                  $white;
+$nav-header-color:                    $gray;
 
-$dropdown-width:                  160px;
+$dropdown-width:                      160px;
 $nav-dropdown-arrow:                  $lighter-gray;
-$dropdown-background:             $off-white;
-$dropdown-top-border:             $header-border-bottom;
-$dropdown-header-color:                 $gray;
-$dropdown-divider-top:            $lighter-gray;
-$dropdown-divider-bottom:         $white;
-$dropdown-item-color:             $gray;
-$dropdown-item-hover-background:  $nav-item-hover-background;
-$dropdown-item-hover-color:       $nav-item-hover-color;
+$dropdown-background:                 $off-white;
+$dropdown-top-border:                 $header-border-bottom;
+$dropdown-header-color:               $gray;
+$dropdown-divider-top:                $lighter-gray;
+$dropdown-divider-bottom:             $white;
+$dropdown-item-color:                 $gray;
+$dropdown-item-hover-background:      $nav-item-hover-background;
+$dropdown-item-hover-color:           $nav-item-hover-color;
 
 
 // Page ------------------------------------------------------------------------

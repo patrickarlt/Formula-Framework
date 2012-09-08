@@ -1,7 +1,10 @@
 body {
-	@include establish-baseline(16px);
+	@include establish-baseline($base-font-size);
 	background: $body-background;
 	color: $body-text-color;
+	@if $debug-baseline-grid {
+		@include baseline-grid-background($base-font-size, $debug-baseline-color);
+	}
 }
 
 // sticky footer ---------------------------------------------------------------
