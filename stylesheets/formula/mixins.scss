@@ -212,6 +212,57 @@
   }
 }
 
+@function grid-calc($span) {
+  @return percentage(($span / $total-columns));
+}
+
+// Mixin for base column styles
+@mixin column-style() {
+  @include box-sizing(border-box);
+  float: left;
+  padding: 0 $column-gutter/2;
+}
+
+// Mixin to calculate column width
+@mixin column-width($span) {
+  width: grid-calc($span);
+}
+
+// Mixin to create a column
+@mixin column($span) {
+  @include column-style();
+  @include column-width($span);
+}
+
+// Mixin for the last column in a row
+@mixin last-column() {
+  float: right;
+}
+
+// add space before a column
+@mixin pre($amount) {
+  margin-left: grid-calc($amount);
+}
+
+// add space after a column
+@mixin post($amount) {
+  margin-right: grid-calc($amount);
+}
+
+// Contrainer setup
+@mixin container {
+  @include box-sizing(border-box);
+  margin: 0 auto;
+  max-width: $container-max;
+  padding: 0 $container-gutter;
+  width: $container-width;
+}
+
+@mixin center-column {
+  float: none;
+  margin: 0 auto;
+};
+
 /*
 <!DOCTYPE html>
 <!--[if IE 8]>  <html class="no-js ie ie8"> <![endif]-->
