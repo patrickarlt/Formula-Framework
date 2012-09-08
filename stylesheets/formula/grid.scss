@@ -87,9 +87,6 @@ img {
     @include box-sizing(border-box);
     float: left;
     padding: $column-gutter/2;
-    &.fill {
-      width: 100% !important;
-    }
   }
   &.two-up {
     .cell {
