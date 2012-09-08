@@ -148,8 +148,8 @@ hr {
 	@include margin-leader(1);
 	@include margin-trailer(1);
 	border: none;
-	border-top:1px solid $lighter-gray;
-	border-bottom: 1px solid $white;
+	border-top:1px solid $hr-border-top;
+	border-bottom: 1px solid $hr-border-bottom;
 
 }
 
