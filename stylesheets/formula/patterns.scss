@@ -205,7 +205,7 @@
 }
 
 nav {
-	@include legacy-pie-clearfix();
+	@include clearfix();
 	position: relative;
 	&.horizontal, &.vertical {
 		h3 {

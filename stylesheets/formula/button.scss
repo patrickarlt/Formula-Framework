@@ -102,7 +102,7 @@ input[type="submit"], .btn, button {
 // button groups ---------------------------------------------------------------
 .btn-group {
 	display: inline-block;
-	@include legacy-pie-clearfix();
+	@include clearfix();
 	.btn, button, .btn-dropdown {
 		@include border-radius(0px);
 		border-left-width:0px;

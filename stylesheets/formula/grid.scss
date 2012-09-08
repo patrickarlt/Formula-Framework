@@ -6,7 +6,7 @@
 }
 
 .row {
-  @include legacy-pie-clearfix();
+  @include clearfix();
   position: relative;
   @if $debug-grids {
     background: rgba(0,0,255,0.2);

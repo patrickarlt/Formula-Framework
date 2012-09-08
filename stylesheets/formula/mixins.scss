@@ -3,6 +3,17 @@
   visibility: visible;  
 }
 
+@mixin clearfix {
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
 @mixin hide {
   display: none !important;
   visibility: hidden;

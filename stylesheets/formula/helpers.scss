@@ -10,6 +10,10 @@
 	clear:both;
 }
 
+.clearfix {
+	@include clearfix;
+}
+
 .show {
 	@include show();
 }
