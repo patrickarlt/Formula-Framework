@@ -13,7 +13,7 @@ body {
 
 #page {
 	@if $fixed-header {
-		padding-top: $page-padding;
+		padding-top: $header-height;
 	}
 }
 
@@ -25,8 +25,8 @@ body {
 	@if $fixed-header {
 		@include position(fixed, 0, 0, auto, 0);
 	}
-	border-bottom: $header-border-bottom;
 	height: $header-height;
+	border-bottom: $header-border-bottom;
 	overflow: visible;
 	z-index: 100;
 }
@@ -34,8 +34,6 @@ body {
 // logo ------------------------------------------------------------------------
 .text-logo {
 	@include adjust-font-size-to($logo-text-size);
-	@include leader(0);
-	@include trailer(0);
 	line-height: $header-height;
 	float: left;
 	color: $logo-text-color;

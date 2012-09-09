@@ -89,12 +89,15 @@ $light-green:          #89ce37;
 $dark-green:           #79b335;
 
 // Debug -----------------------------------------------------------------------
-$debug-grids:         false;
-$debug-baseline-grid: true;
-$debug-baseline-color: $lightest-gray;
+$debug-grids:                         false;
+$debug-grids-container-color:         false;
+$debug-grids-row-color:               false;
+$debug-grids-column-color:            false;
+$debug-baseline-grid:                 false;
+$debug-baseline-color:                $lightest-gray;
 
-// ----
-$hr-border-bottom: $light-gray;
+// Horizontal Rules
+$hr-border-bottom:  $light-gray;
 $hr-border-top: $white;
 
 // Buttons ---------------------------------------------------------------------
@@ -222,10 +225,10 @@ $body-background:      $off-white;
 $selection-color:      lighten($light-blue, 25);
 
 // Header ----------------------------------------------------------------------
-$header-height:        40px;
+$header-height:        16*3px;
 $header-background:    mix($off-white, $white) linear-gradient($off-white, $white);
-$header-border-bottom: 1px solid $light-gray;
-$header-shadow:        0 1px 3px rgba(0,0,0,0.25);
+$header-border-bottom: 1px solid $lighter-gray;
+$header-shadow:        0 1px 3px rgba(0,0,0,0.15);
 $fixed-header:         true;
 $logo-text-size:       28px;
 $logo-text-color:      $gray;
@@ -244,7 +247,7 @@ $nav-header-color:                    $gray;
 $dropdown-width:                      160px;
 $nav-dropdown-arrow:                  $lighter-gray;
 $dropdown-background:                 $off-white;
-$dropdown-top-border:                 $header-border-bottom;
+$dropdown-border:                     $header-border-bottom;
 $dropdown-header-color:               $gray;
 $dropdown-divider-top:                $lighter-gray;
 $dropdown-divider-bottom:             $white;

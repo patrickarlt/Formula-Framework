@@ -32,7 +32,6 @@
 			text-decoration: none;
 		}
 	}
-
 }
 
 .alert {	
@@ -59,25 +58,6 @@
 .panel {
 	@include box-style($panel-default-background, $panel-default-border-color, $panel-default-text-color, $panel-default-text-shadow);
 	@include rhythm-borders(1px, 1);
-	> :first-child {
-		@include leader(0);
-	}
-	> :last-child {
-		@include trailer(0);
-	}
-	&.clip-bottom {
-		padding-bottom:0;
-	}
-	&.clip-top {
-		padding-top:0;
-	}
-	&.edge-to-edge {
-		padding-left:0;
-		padding-right:0;
-	}
-	&.no-padding {
-		padding:0;
-	}
 	&.primary {
 		@include box-style($panel-primary-background, $panel-primary-border-color, $panel-primary-text-color, $panel-primary-text-shadow);
 	}
@@ -180,8 +160,7 @@
 				@include arrow-direction("right");	
 			}
 	  }
-	}
-	
+	}	
 }
 
 .label {
@@ -208,13 +187,6 @@ nav {
 	@include clearfix();
 	position: relative;
 	&.horizontal, &.vertical {
-		h3 {
-			@include adjust-font-size-to(16px);
-			@include adjust-leading-to(1);
-			padding-left: 0.8em;
-			padding-right: 0.8em;
-			color: $nav-header-color;
-		}
 		hr {
 			border-top:1px solid $nav-divider-top;
 			border-bottom:1px solid $nav-divider-bottom;
@@ -224,17 +196,13 @@ nav {
 			@include trailer(.25);
 		}
   	ul {
-			@include adjust-font-size-to(16px);
-			margin: 0;
-			padding: 0;
+  		margin:0;
 			li {
-				a {					
-					color: $nav-item-color;
-					padding: 0 1em 0 1em;
-					@include adjust-font-size-to(14px);
+				a {
 					line-height: $header-height;
+					color: $nav-item-color;
+					padding: 0 1em;
 					display: block;
-					//text-shadow: $nav-item-text-shadow;
 				}
 				&:hover {
 					> a {
@@ -258,16 +226,17 @@ nav {
 							right: 0.5em;
 						}
 					}
+					.dropdown-menu {
+						a {
+			  			@include adjust-leading-to(2);
+			  		}
+					}
 				}
 			}
 		}
 	}
 	&.panel {
 		padding: 0;
-		> h3:first-child {
-			@include leader(1);
-			@include trailer(1);
-		}
 	}
   &.horizontal {
   	ul li {
@@ -283,7 +252,7 @@ nav {
 			}
   	}
   	.dropdown-menu {
-  		top: $header-height + 5;
+  		top: $header-height + 5px;
   	}
   }
   &.vertical {
@@ -298,26 +267,15 @@ nav {
 }
 
 .dropdown-menu {
-	@include adjust-font-size-to(16px);
 	@include clearfix;
 	@include border-radius(4px);
 	position: absolute;
 	background: $dropdown-background;
-	border: $dropdown-top-border;
+	border: $dropdown-border;
 	display: none;
 	float: left;
 	clear: both;
 	z-index: 1001;
-	> :nth-child(1){
-		@include leader(.25);
-	}
-	h3 {
-		@include adjust-font-size-to(16px);
-		@include adjust-leading-to(1);
-		padding-left: 0.8em;
-		padding-right: 0.8em;
-		color: $dropdown-header-color;
-	}
 	hr {
 		border-top:1px solid $dropdown-divider-top;
 		border-bottom:1px solid $dropdown-divider-bottom;
@@ -327,7 +285,9 @@ nav {
 		@include trailer(.25);
 	}
 	ul {
-		margin: 0;
+		@include adjust-font-size-to(14px, 1, 14px);
+		@include leader(.25);
+		@include trailer(.25);
 		padding: 0;
 		width: $dropdown-width;
 		li {
@@ -336,10 +296,10 @@ nav {
 			clear: both;
 			padding: 0;
 			a {
+				@include adjust-leading-to(2);
 				padding: 0 1em 0 1em;
 				display: block;
 				border: none;
-				@include adjust-leading-to(2);
 				color: $dropdown-item-color;
 			}
 			&:hover {
@@ -350,13 +310,12 @@ nav {
 			}
 		}
 	}
-	ul:last-of-type{
-		@include trailer(.25);
-	}
 }
 
 .title-bar {
 	@include background(linear-gradient(#887ab6, #6b5aa4));
+	@include padding-leader(1.5);
+	@include padding-trailer(1.5);
 	@include trailer(2);
 	#{headers(all)} {
 		color: $off-white;
