@@ -56,8 +56,10 @@ blockquote {
 // paragraphs ------------------------------------------------------------------
 p {
 	@include leader(0);
-	@include trailer(1, 14px);
-	@include adjust-font-size-to(14px, 1);
+	//@include trailer(1, 14px);
+	//@include adjust-font-size-to(14px, 1);
+	@include trailer(1, 16px);
+	@include adjust-font-size-to(16px, 1);
 	margin-top:0;
 	&.large {
 		@include adjust-font-size-to(18px, 1);
@@ -89,7 +91,7 @@ nav {
 }
 
 ul, ol {
-	@include adjust-font-size-to(14px);
+	//@include adjust-font-size-to(14px);
 	@include trailer(1);
 	padding-left: 1.25em;
 	margin-top:0;
@@ -98,7 +100,7 @@ ul, ol {
 }
 
 dl {
-	@include adjust-font-size-to(14px);
+	//@include adjust-font-size-to(14px);
 	margin-top:0;
 	dt {
 		@include adjust-font-size-to(18px);
