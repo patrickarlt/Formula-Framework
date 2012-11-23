@@ -120,6 +120,7 @@ code {
 	border: 1px solid $lightest-gray;
 	font-family: $code-font;
 	padding: .25em;
+  white-space: pre;
 }
 
 // code block ------------------------------------------------------------------
@@ -127,17 +128,20 @@ pre {
 	@include leader(0);
 	@include trailer(1);
 	code {
-		@include rhythm-borders(1px, .5, 14px);
-		@include adjust-font-size-to(12px);
-		line-height: 1.5em;
+		@include rhythm-borders(1px, .5, 16px);
+		//@include adjust-font-size-to(12px);
+		//line-height: 1.5em;
 		font-family: $code-font;
 		border-width: 1px;
-		overflow-x: scroll;
-		overflow-y: auto;
-		white-space: pre;
+		overflow: auto;
 	  word-wrap: normal;
 	  display: block;
 	}
+}
+
+// mark ------------------------------------------------------------------------
+mark {
+	padding: 2px 3px 0;
 }
 
 // abbr ------------------------------------------------------------------------
