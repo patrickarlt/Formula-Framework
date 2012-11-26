@@ -2,12 +2,8 @@
 #{headers(all)} {
 	margin: 0;
 	font-family: $header-font;
-	@if not($header-style == "normal"){
-		font-weight: $header-style;
-	}
-	@if not($header-weight == "700"){
-		font-style: $header-weight;
-	}
+	font-style: $header-style;
+	font-weight: $header-weight;
 	&.divider {
 		border-color: $lighter-gray;
 	}
