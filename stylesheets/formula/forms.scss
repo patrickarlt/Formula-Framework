@@ -24,7 +24,7 @@
 
 form {
 	.field, .fields, fieldset {
-		@extend .row;
+		//@extend .row;
 		@include trailer(1);
 	}
 	label {
