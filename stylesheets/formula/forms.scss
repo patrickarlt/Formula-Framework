@@ -23,8 +23,8 @@
 }
 
 form {
-	.field, .fields, fieldset {
-		//@extend .row;
+	> .field, > .fields, > fieldset {
+		@extend .row;
 		@include trailer(1);
 	}
 	label {
