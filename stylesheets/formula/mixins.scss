@@ -274,13 +274,6 @@
   margin: 0 auto;
 };
 
-/*
-<!DOCTYPE html>
-<!--[if IE 8]>  <html class="no-js ie ie8"> <![endif]-->
-<!--[if IE 9]>  <html class="no-js ie ie9"> <![endif]-->
-<!--[if !IE]>   <html class="no-js"> <!--<![endif]-->
-*/
-
 // IE mixins
 @mixin for-ie9(){
   html.ie9 {

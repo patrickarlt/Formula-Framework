@@ -9,14 +9,27 @@ body {
 }
 
 // sticky footer ---------------------------------------------------------------
-@import "compass/layout/sticky-footer";
-@include sticky-footer($footer-height, "wrapper", "push", "footer");
+html, body {
+	height: 100%;
+}
 
-#page {
+#wrapper {
+	min-height: 100%;
+}
+
+#page {overflow:auto;
+	padding-bottom: $footer-height;
 	@if $fixed-header {
 		padding-top: $header-height;
 	}
 }
+
+#footer {
+	position: relative;
+	margin-top: -($footer-height);
+	height: $footer-height;
+	clear:both;
+} 
 
 // header ----------------------------------------------------------------------
 #header {
