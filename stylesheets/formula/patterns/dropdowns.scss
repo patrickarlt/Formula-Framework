@@ -1,7 +1,6 @@
 // should enable dropdowns on navigation patterns with nav enabled
 // should enable dropdowns on buttons with buttons enabled
 
-
 .dropdown-menu {
   @include clearfix;
   @include border-radius(4px);
