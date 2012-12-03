@@ -1,0 +1,56 @@
+.alert {
+  @include border-radius(4px);
+  @include box-shadow(inset 0 1px 0 rgba(255,255,255,0.25), 0 2px 2px rgba(0,0,0,0.1));
+  @include trailer(1);
+  @include rhythm-borders(1px, 0, 16px, solid);
+  position: relative;
+  .close {
+    @include opacity(0.5);
+    font-size: 24px;
+    font-weight: 700;
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    border-bottom: none;
+    &:after{
+      content: "×";
+      width: 14px;
+      height: 14px;
+      display: block;
+      margin-top:-15px;
+    }
+    &:hover {
+      @include opacity(0.8);
+      cursor: pointer;
+      text-decoration:none;
+    }
+  }
+  a {
+    color: inherit;
+    &:hover {
+      @include opacity(0.8);
+      text-decoration: none;
+    }
+  }
+}
+
+.alert {  
+  @include box-style($alert-default-background, $alert-default-border-color, $alert-default-text-color, $alert-default-text-shadow);
+  text-align: center;
+  p {
+    @include padding-leader(.5);
+    @include padding-trailer(.5);
+  }
+  &.primary {
+    @include box-style($alert-primary-background, $alert-primary-border-color, $alert-primary-text-color, $alert-primary-text-shadow);
+  }
+  &.secondary {
+    @include box-style($alert-secondary-background, $alert-secondary-border-color, $alert-secondary-text-color, $alert-secondary-text-shadow);
+  }
+  &.success {
+    @include box-style($alert-success-background, $alert-success-border-color, $alert-success-text-color, $alert-success-text-shadow);
+  }
+  &.danger {
+    @include box-style($alert-danger-background, $alert-danger-border-color, $alert-danger-text-color, $alert-danger-text-shadow);
+  }
+}

@@ -1,0 +1,92 @@
+// This should also enable tooltips on forms and buttons
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  .tooltip-wrapper {
+    position: absolute;
+  }
+  .tooltip-content {
+    @include box-sizing(border-box);
+    @include border-radius(3px);    
+    @include adjust-font-size-to(12px);
+    white-space: nowrap;
+    background: $darker-gray;
+    display: none;
+    position: relative; 
+    text-align: center;
+    padding: 0 .5em;
+    color: $white;
+    z-index: 99;
+    &:after {
+      @include arrow-base(5px);
+      @include arrow-color($darker-gray);
+    }
+  }
+  &:hover, &.show-tooltip {
+    .tooltip-content {
+      display: block;
+    }
+  }
+  &.above, &.below {
+    .tooltip-content {
+      left: -50%;
+    }
+    .tooltip-wrapper {
+      left: 50%;
+    }
+  }
+  &.above {
+    .tooltip-content {
+      &:after {
+        @include arrow-position(5px, "below");
+        @include arrow-direction("down"); 
+      }
+    }
+    .tooltip-wrapper {
+      bottom: 115%;
+    }
+  }
+  &.below {
+    .tooltip-wrapper {
+      top: 115%;
+    }
+    .tooltip-content {
+      &:after {
+        @include arrow-position(5px, "above");
+        @include arrow-direction("up"); 
+      }
+    }
+  }
+  &.before, &.after {
+    float: none;
+    .tooltip-wrapper {
+      top: 50%;
+    }
+    .tooltip-content {
+      margin-top: -1em;
+    }
+  }
+  &.before {
+    .tooltip-wrapper {
+      right: 115%;
+    }
+    .tooltip-content {
+      &:after {
+        @include arrow-position(5px, "right");
+        @include arrow-direction("left"); 
+      }
+    }
+  }
+  &.after {
+    .tooltip-wrapper {
+      left: 115%;
+    }
+    .tooltip-content {
+      &:after {
+        @include arrow-position(5px, "left");
+        @include arrow-direction("right");  
+      }
+    }
+  } 
+}
