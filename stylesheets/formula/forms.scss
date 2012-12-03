@@ -1,6 +1,6 @@
 form {
 	// directly descended fields and fieldsets are rows
-	> .field, > .fields, > fieldset {
+	> .field, > .fields, > fieldset, > .actions {
 		@include nested-row();
 	}
 
