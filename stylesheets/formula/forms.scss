@@ -21,7 +21,6 @@ form {
 		margin-right: -0.5em;
 		.field {
 			@include column-style();
-			padding: 0;
 		}
 	}
 
