@@ -101,6 +101,7 @@ $hr-border-top: $white;
 
 // Buttons ---------------------------------------------------------------------
 $button-shadow:                       none;
+$button-weight:                       500;
 
 $button-default-background:           mix($lighter-gray, $light-gray, 50%) linear-gradient($lighter-gray, $light-gray);
 $button-default-border-color:         $light-gray;

@@ -10,6 +10,9 @@
   &.center {
     @include center-column();
   }
+  &.no-gutter {
+    padding: 0;
+  }
 }
 
 @for $i from 1 through $total-columns {

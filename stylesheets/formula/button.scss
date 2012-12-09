@@ -10,6 +10,7 @@ input[type="submit"], .btn, button {
 	padding-right: 1em;
 	color: $white;
 	display: inline-block;
+	font-weight: $button-weight;
 	
 	// states --------------------------------------------------------------------
 	&:hover {
