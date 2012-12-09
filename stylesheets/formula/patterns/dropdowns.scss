@@ -1,0 +1,48 @@
+// should enable dropdowns on navigation patterns with nav enabled
+// should enable dropdowns on buttons with buttons enabled
+
+.dropdown-menu {
+  @include clearfix;
+  @include border-radius(4px);
+  position: absolute;
+  background: $dropdown-background;
+  border: $dropdown-border;
+  display: none;
+  float: left;
+  clear: both;
+  z-index: 1001;
+  hr {
+    border-top:1px solid $dropdown-divider-top;
+    border-bottom:1px solid $dropdown-divider-bottom;
+    border-left: none;
+    border-right: none;
+    @include leader(.25);
+    @include trailer(.25);
+  }
+  ul {
+    @include adjust-font-size-to(14px, 1, 14px);
+    @include leader(.25);
+    @include trailer(.25);
+    padding: 0;
+    width: $dropdown-width;
+    li {
+      float: none !important;
+      display: block;
+      clear: both;
+      padding: 0;
+      a {
+        @include adjust-leading-to(2);
+        padding: 0 1em 0 1em;
+        display: block;
+        border: none;
+        color: $dropdown-item-color;
+      }
+      &:hover {
+        > a {
+          @include background($dropdown-item-hover-background);
+          color: $dropdown-item-hover-color;
+        }
+      }
+    }
+  }
+}

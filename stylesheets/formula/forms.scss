@@ -1,72 +1,59 @@
-@mixin stacked-form(){
-	label {
-		clear:both;
-		text-align: left;
-		width: 100%;
+form {
+	// directly descended fields and fieldsets are rows
+	> .field, > .fields, > fieldset, > .actions {
+		@include nested-row();
 	}
-	.input {
-		@include column($total-columns);
-		@for $i from 1 through $total-columns {
-		  &.#{num-to-word($i)} { 
-		    @include column-width($i);
-		  }  
-		}
-		ul {
+
+	// eveyrthig is clearfixed
+	.field, .fields, fieldset {
+		@include clearfix();
+	}
+
+	// fields have a bottom margin
+	.field, fieldset {
+		@include trailer(1);
+	}
+
+	// but that margin is smaller in fieldsets
+	fieldset .field {
+		@include leader(.5);	
+		@include trailer(.5);	
+	}
+
+	// when fields are grouped under fieldsets or .fields they act like columns
+	.fields, fieldset {
+		.field {
+			@include column-style();
 			padding: 0;
 		}
 	}
-	.actions {
-		@include column($total-columns);
-		@include pre(0);
-	}
-}
 
-form {
-	> .field, > .fields, > fieldset {
-		@extend .row;
-		@include trailer(1);
-	}
 	label {
-		@include column($label-span);
-		@include adjust-font-size-to(14px);
-		@include padding-leader(.25, 14px);
-		text-align:right;
-		height: rhythm(1.5, 14px);
+		@include column($total-columns);
+		@include padding-trailer(.25);
+		text-indent: 4px;
+		white-space:nowrap;
 	}
+
 	fieldset {
 		@include clearfix();
 		@include box-sizing(border-box);
-		@include border-radius(3px);
-		@include rhythm-borders(1px, 1);
+		@include border-radius(4px);
+		@include rhythm-borders(1px, 0);
+	  margin-left: ($column-gutter/4);
+	  margin-right: ($column-gutter/4);
 		border: $field-border;
 		legend {
 			@include adjust-font-size-to(18px);
 			font-weight: 700;
-		}
-		.field:last-of-type {
-			@include trailer(0);
+			margin-left: .5em;
 		}
 	}
+
 	.input {
+		@include column($total-columns);
 		position: relative;
-		@include column($total-columns - $label-span);
-		@for $i from 1 through $total-columns {
-		  &.#{num-to-word($i)} { 
-		    @include column-width($i);
-		  }  
-		}
-
-		&.before {
-			.tooltip-wrapper {
-				left: 100%;
-			}
-		}
-		&.after {
-			.tooltip-wrapper {
-				right: 100%;
-			}
-		}
-
+		
 		&.success, &.error {
 			.tooltip-content {
 				display: block;
@@ -98,6 +85,7 @@ form {
 				border-color: $dark-green;
 			}
 		}
+
 		input, select, textarea {
 			margin: 0;
 			width: 100%;
@@ -105,16 +93,18 @@ form {
 
 		ul {
 			padding: 0;
-			margin: 0;
+			margin: 0 0 0 4px;
 			@include padding-leader(.25, 14px);
 			list-style: none;
 			li {
+				@include trailer(.5);
 				label {
 					float: none;
 					padding: 0;
 				}
 			}
 		}
+		
 		small {
 			@include adjust-font-size-to(11px);
 			color: $gray;
@@ -129,34 +119,9 @@ form {
 	}
 
 	.actions {
-		@include column($total-columns - $label-span);
-		@include pre($label-span);
-		padding: 0 $column-gutter/4;
+		@include column($total-columns);
 	}
 
-	// stacked -------------------------------------------------------------------
-	@if $forms-stacked {
-		@include stacked-form();
-	}
-
-	&.stacked {
-		@include stacked-form();
-	}
-
-	// responsive forms ----------------------------------------------------------
-	@if not($forms-stacked){
-		@if $forms-respond-to {
-			@include respond-to($tablet-tall) {
-				@include stacked-form();
-			}
-		}
-	}
-
-	&.responsive {
-		@include respond-to($tablet-tall) {
-			@include stacked-form();
-		}
-	}	
 }
 
 // full width inputs -----------------------------------------------------------
@@ -171,7 +136,7 @@ input, select, textarea,  {
 // checkboxes and radio buttons ------------------------------------------------
 input[type="checkbox"], input[type="radio"] {
 	display: block;
-	margin: 5px 4px 0 1px !important;
+	margin: 3px 6px 0 1px !important;
 	width: auto !important;
 	float: left;
 }
