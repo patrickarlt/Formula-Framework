@@ -1,4 +1,4 @@
-input[type="submit"], .btn, button {
+.btn {
 	@include border-radius(4px);
 	@include adjust-font-size-to(15px);
 	@include rhythm-borders(1px, .25, 15px, solid);
@@ -76,6 +76,10 @@ input[type="submit"], .btn, button {
 			background: transparent;
 		}
 	}
+
+	&.fill {
+		width: 100%;
+	}
 	
 	// sizes ---------------------------------------------------------------------
 	&.x-small {
@@ -109,14 +113,6 @@ input[type="submit"], .btn, button {
 		display:block;
 		float:left;
 	}
-	.btn-dropdown {
-		.btn, button {
-			float: none;
-			clear: none;
-			@include border-radius(0px);
-			border-left-width:0px;
-		}
-	}
 	> :first-child {
 		@include border-left-radius(4px);
 		border-left-width:1px;
@@ -133,36 +129,9 @@ input[type="submit"], .btn, button {
 	}
 }
 
-.btn-dropdown {
-	position: relative;
-	display: inline-block;
-	.btn, button {
-		position: relative;
-		@include arrow("down", .35em, $white);
-		padding-right: 1.75em;
-		&:after {
-			@include opacity(0.8);
-			position: absolute;
-			right: .75em;
-			top: 45%;
-		}
-	}
-	.dropdown-menu {
-		top:110%;
-	}
-}
-
 .toolbar {
 	.btn-group, form, .btn, button, .btn-dropdown {
 		display: block;
 		float: left;
-	}
-}
-
-// form inputs -----------------------------------------------------------------
-input[type="submit"] {
-	@include button-style($button-primary-background, $button-primary-border-color, $button-primary-text-color, $button-primary-text-shadow);
-	&:hover {
-		@include button-style($button-primary-hover-background,$button-primary-hover-border-color, $button-primary-hover-text-color, $button-primary-hover-text-shadow);	
 	}
 }

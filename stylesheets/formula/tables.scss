@@ -14,20 +14,6 @@ table {
 		font-family: $table-header-font;
 		text-align: left;
 	}
-	tfoot, thead {
-		&.strong {
-			background: $lightest-gray;
-			th,td {
-				border-color: $lighter-gray;
-			}
-			th {
-				@include apply-side-rhythm-border(bottom, 1px, .5, $font-unit);
-			}
-			td {
-				@include apply-side-rhythm-border(top, 1px, .5, $font-unit);
-			}
-		}
-	}
 	tfoot {
 		td {
 			@include adjust-font-size-to(18px);
@@ -48,8 +34,7 @@ table {
 	&.bordered {
 		background: $white;
 		th, td {
-			@include rhythm-borders(1px, .5, $font-unit);
-			border-color: $lighter-gray;
+			border: 1px solid $lighter-gray;
 		}
 	}
 	&.striped {
