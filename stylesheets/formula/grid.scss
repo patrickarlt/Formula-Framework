@@ -1,57 +1,11 @@
 .container {
   @include container();
-  @if $debug-grids {
-    background: rgba(0,255,0,0.2);
-  }
 }
 
-.row {
-  @include clearfix();
-  position: relative;
-  @if $debug-grids {
-    background: rgba(0,0,255,0.2);
-  }
-  .row { 
-    width: auto; 
-    max-width: none; 
-    min-width: 0; 
-    margin-left: (-($column-gutter/4));
-    margin-right: (-($column-gutter/4));
-  }
-  @include respond-to($phone){
-    &.respond-to-phone {
-      .column, .columns {
-        @include column(24);
-      }
-    }
-  }
-  @include respond-to($tablet-tall){
-    &.respond-to-tablet-tall {
-      .column, .columns {
-        @include column(24);
-      }
-    }
-  }
-  @include respond-to($tablet-wide){
-    &.respond-to-tablet-wide {
-      .column, .columns {
-        @include column(24);
-      }
-    }
-  }
-}
-
-.column, .columns {
+.column {
   @include column-style();
-  @if $debug-grids {
-    @include background-clip(content-box);
-    background: rgba(255,0,0,0.2);
-  }
   &:last-child {
     @include last-column();
-  }
-  &.left {
-    float: left;
   }
   &.center {
     @include center-column();
@@ -61,10 +15,7 @@
 @for $i from 1 through $total-columns {
   .#{num-to-word($i)} { 
     @include column-width($i); 
-  }  
-}
-
-@for $i from 1 through $total-columns - 1 {
+  }
   .pre-#{num-to-word($i)} {
     @include pre($i)
   }
@@ -80,42 +31,4 @@ img, object, embed, video{
 
 img {
   -ms-interpolation-mode: bicubic; 
-}
-
-.grid {
-  .cell {
-    @include box-sizing(border-box);
-    float: left;
-    padding: $column-gutter/2;
-  }
-  &.two-up {
-    .cell {
-      @include column-width(12);
-    }
-  }
-  &.three-up {
-   .cell {
-      @include column-width(8);
-    } 
-  }
-  &.four-up {
-    .cell {
-      @include column-width(6);
-    }
-  }
-  &.six-up {
-    .cell {
-      @include column-width(4);
-    }
-  }
-  &.eight-up {
-    .cell {
-      @include column-width(3);
-    }
-  }
-  &.twelve-up {
-    .cell {
-      @include column-width(2);
-    }
-  }
 }

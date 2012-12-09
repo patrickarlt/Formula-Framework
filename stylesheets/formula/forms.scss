@@ -128,82 +128,6 @@ form {
 		}
 	}
 
-	.prefix, .suffix {
-		padding-right: 0;
-		+ .prefix, + .suffix {
-			padding-left: 0;
-			padding-right: $column-gutter/2;
-		}
-		&.with-btn {
-			input[type="submit"], .btn, button {
-				@include box-shadow($field-shadow);
-				display: block;
-				width: 100%;
-			}
-		}
-		&.with-text {
-			span {
-				@include adjust-font-size-to(14px);
-				@include border-radius(4px);
-				@include box-sizing(border-box);
-				@include box-shadow($field-shadow);
-				@include rhythm-borders(1px, .25, 14px, solid);
-				background:$lightest-gray;
-				border: $field-border;
-				color: $gray;
-				display: block;
-				height: rhythm(1.5, 14px);
-				text-align: center;
-			}
-		}
-		input {
-			position: relative;
-			top: 0;
-		}
-	}	
-
-	.prefix {
-		&.with-text {
-			span {
-				@include border-right-radius(0);
-			}
-		}
-		&.with-btn {
-			input[type="submit"], .btn, button {
-				@include border-right-radius(0);
-				@include border-left-radius(4px);
-			}	
-		}
-		input {
-			@include border-left-radius(0);
-			border-left: none;
-			&:focus {
-				border-left: none;
-			}
-		}
-	}
-
-	.suffix {
-		&.with-text {
-			span {
-				@include border-left-radius(0);
-			}
-		}
-		&.with-btn {
-			input[type="submit"], .btn, button {
-				@include border-left-radius(0);
-				@include border-right-radius(4px);
-			}
-		}
-		input {
-			@include border-right-radius(0);
-			border-right: none;
-			&:focus {
-				border-right: none;
-			}
-		}
-	}
-
 	.actions {
 		@include column($total-columns - $label-span);
 		@include pre($label-span);
@@ -290,7 +214,7 @@ textarea {
 	height: auto;
 	resize: none;
 	width: 100%;
-	.resizeable {
+	&.resizeable {
 		resize: both;
 	}
 }
