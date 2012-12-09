@@ -1,9 +1,4 @@
 form {
-	// directly descended fields and fieldsets are rows
-	> .field, > .fields, > fieldset, > .actions {
-		@include nested-row();
-	}
-
 	// eveyrthig is clearfixed
 	.field, .fields, fieldset {
 		@include clearfix();
@@ -28,13 +23,6 @@ form {
 		}
 	}
 
-	label {
-		@include column($total-columns);
-		@include padding-trailer(.25);
-		text-indent: 4px;
-		white-space:nowrap;
-	}
-
 	fieldset {
 		@include clearfix();
 		@include box-sizing(border-box);
@@ -50,78 +38,51 @@ form {
 		}
 	}
 
-	.input {
-		@include column($total-columns);
-		position: relative;
-		
-		&.success, &.error {
-			.tooltip-content {
-				display: block;
-			}
-		}
+}
 
-		&.error {
-			.tooltip-content {
-				background: $dark-red;
-				&:after {
-					@include arrow-color($dark-red);
-				}
-			}
-			input, select, textarea {
-				background: $light-red;
-				border-color: $dark-red;
-			}
-		}
+label {
+	@include padding-trailer(.25);
+	text-indent: 4px;
+	white-space:nowrap;
+}
 
-		&.success {
-			.tooltip-content {
-				background: $dark-green;
-				&:after {
-					@include arrow-color($dark-green);
-				}
-			}
-			input, select, textarea {
-				background: $light-green;
-				border-color: $dark-green;
-			}
-		}
+.input {
+	position: relative;
 
-		input, select, textarea {
-			margin: 0;
-			width: 100%;
-		}
+	input, select, textarea {
+		margin: 0;
+		width: 100%;
+	}
 
-		ul {
-			padding: 0;
-			margin: 0 0 0 4px;
-			@include padding-leader(.25, 14px);
-			list-style: none;
-			li {
-				@include trailer(.5);
-				label {
-					float: none;
-					padding: 0;
-				}
-			}
-		}
-		
-		small {
-			@include adjust-font-size-to(11px);
-			color: $gray;
+	ul {
+		padding: 0;
+		margin: 0 0 0 4px;
+		@include padding-leader(.25, 14px);
+		list-style: none;
+		li {
+			@include trailer(.5);
 			label {
-				@include adjust-font-size-to(11px, 1, 10px);
 				float: none;
 				padding: 0;
-				margin: 0;
-				width: auto;
 			}
 		}
 	}
-
-	.actions {
-		@include column($total-columns);
+	
+	small {
+		@include adjust-font-size-to(11px);
+		color: $gray;
+		label {
+			@include adjust-font-size-to(11px, 1, 10px);
+			float: none;
+			padding: 0;
+			margin: 0;
+			width: auto;
+		}
 	}
+}
 
+.form-actions {
+	@include column($total-columns);
 }
 
 // full width inputs -----------------------------------------------------------
