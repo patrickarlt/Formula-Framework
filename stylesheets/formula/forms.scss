@@ -7,8 +7,6 @@ form {
 	// fields have a bottom margin
 	.field, fieldset {
 		@include trailer(1);
-		margin-left: -0.5em;
-		margin-right: -0.5em;
 	}
 
 	// but that margin is smaller in fieldsets
@@ -19,6 +17,8 @@ form {
 
 	// when fields are grouped under fieldsets or .fields they act like columns
 	.fields, fieldset {
+		margin-left: -0.5em;
+		margin-right: -0.5em;
 		.field {
 			@include column-style();
 			padding: 0;
