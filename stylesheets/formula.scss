@@ -1,4 +1,49 @@
-@import "formula/normalize.scss";
+@import "formula/reset.scss";
+
+$legacy-support-for-ie: false;
+$legacy-support-for-ie6: false;
+$legacy-support-for-ie7: false;
+$legacy-support-for-ie8: false;
+$legacy-support-for-mozilla: false;
+
+$total-columns:     24 !default;
+$container-width:   100% !default;
+$container-max:     90% !default;
+$container-gutter:  2em !default;
+$column-gutter:     1em !default;
+$footer-height:     72px !default;
+$header-height:     144px !default;
+
+$h1-size: 48px !default;
+$h1-lines: lines-for-font-size($h1-size) !default;
+
+$h2-size: 36px !default;
+$h2-lines: lines-for-font-size($h2-size) !default;
+
+$h3-size: 24px !default;
+$h3-lines: lines-for-font-size($h3-size) !default;
+
+$h4-size: 18px !default;
+$h4-lines: lines-for-font-size($h4-size) !default;
+
+$h5-size: 16px !default;
+$h5-lines: lines-for-font-size($h5-size) !default;
+
+$h6-size: 14px !default;
+$h6-lines: lines-for-font-size($h6-size) !default;
+
+$white:                 hsl(0, 0, 100) !default;
+$off-white:             hsl(0, 0, 98)  !default;
+$lightest-gray:         hsl(0, 0, 92)  !default;
+$lighter-gray:          hsl(0, 0, 80)  !default;
+$light-gray:            hsl(0, 0, 65)  !default;
+$gray:                  hsl(0, 0, 50)  !default;
+$dark-gray:             hsl(0, 0, 35)  !default;
+$darker-gray:           hsl(0, 0, 20)  !default;
+$darkest-gray:          hsl(0, 0, 12)  !default;
+$off-black:             hsl(0, 0, 2)   !default;
+$black:                 hsl(0, 0, 0)   !default;
+
 @import "formula/mixins.scss";
 @import "formula/grid.scss";
 @import "formula/helpers.scss";
@@ -7,4 +52,3 @@
 @import "formula/forms.scss";
 @import "formula/tables.scss";
 @import "formula/button.scss";
-@import "formula/patterns.scss";

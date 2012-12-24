@@ -37,8 +37,7 @@ h6 {
 blockquote {
 	margin-left:0;
 	border-color: $lighter-gray;
-	@include adjust-font-size-to(14px);
-	@include apply-side-rhythm-border(left, 5px, 1, 14px);
+	@include apply-side-rhythm-border(left, 5px, 1);
 	@include leader(1);
 	@include trailer(1);
 }
@@ -50,8 +49,12 @@ p {
 
 a {
 	text-decoration: none;
-	&:hover, &:focus {
+	&:hover, &:active {
+		outline: 0;
 		cursor: pointer;
+	}
+	&:focus {
+		outline: thin dotted;
 	}
 }
 
@@ -91,6 +94,9 @@ code {
 pre {
 	@include leader(0);
 	@include trailer(1);
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
 	code {
 		display: block;
 		overflow: auto;
@@ -116,6 +122,7 @@ img, object, embed, video{
 }
 
 img {
+	border: 0;
   -ms-interpolation-mode: bicubic; 
 }
 
@@ -130,4 +137,89 @@ img::selction {
 
 img::moz-selection {
 	background: transparent;
+}
+
+figure {
+    margin: 0;
+}
+
+sub,
+sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+sup {
+    top: -0.5em;
+}
+
+sub {
+    bottom: -0.25em;
+}
+
+q {
+    quotes: "\201C" "\201D" "\2018" "\2019";
+}
+
+
+svg:not(:root) {
+    overflow: hidden;
+}
+
+code,
+kbd,
+pre,
+samp {
+    font-family: monospace, serif;
+    font-size: 1em;
+}
+
+dfn {
+    font-style: italic;
+}
+
+mark {
+    background: #ff0;
+    color: #000;
+}
+
+b,
+strong {
+    font-weight: bold;
+}
+
+
+abbr[title] {
+    border-bottom: 1px dotted;
+}
+
+[hidden] {
+    display: none;
+}
+
+audio:not([controls]) {
+    display: none;
+    height: 0;
+}
+
+audio,
+canvas,
+video {
+    display: inline-block;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section,
+summary {
+    display: block;
 }

@@ -29,18 +29,19 @@ fieldset {
 	@extend %fields;
 	@include box-sizing(border-box);
 	@include rhythm-borders(1px, 0);
-	@include trailer(1);
-  margin-left: 0;
-  margin-right: 0;
-	legend {
-		@include adjust-font-size-to(18px);
-		font-weight: 700;
-		margin-left: .5em;
-	}
+  margin: 1em 0 0;
 	label {
 		@include leader(.5);
 		margin-bottom: 0;
 	}
+}
+
+legend {
+	@include adjust-font-size-to(18px);
+	font-weight: 700;
+	margin-left: .5em;
+	border: 0;
+	padding: 0;
 }
 
 label {
@@ -79,6 +80,7 @@ input, select, textarea,  {
 
 input[type="checkbox"], input[type="radio"] {
 	margin: 0px 4px 0 0 !important;
+	padding: 0;
 	width: auto !important;
 	float: left;
 }
@@ -92,6 +94,8 @@ input[type="checkbox"], input[type="radio"] {
 textarea {
 	height: auto;
 	resize: vertical;
+	overflow: auto;
+  vertical-align: top;
 	&.resize-h {
 		resize: horizontal;
 	}
@@ -106,4 +110,49 @@ select {
 
 input[type="file"] {
 	margin: 10px 0 5px;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+input[type="search"] {
+  -webkit-appearance: textfield;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+button[disabled],
+input[disabled] {
+  cursor: default;
+}
+
+button,
+input {
+  line-height: normal;
+}
+
+button,
+html input[type="button"], /* 1 */
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button; /* 2 */
+  cursor: pointer; /* 3 */
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+  margin: 0;
 }

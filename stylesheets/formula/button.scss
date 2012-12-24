@@ -8,7 +8,6 @@
 // .large          		- Dims the button to indicate it cannot be used.
 //
 // Styleguide 1.1.
-*/
 %btn {
 	@include adjust-font-size-to(16px);
 	@include rhythm-borders(0px, .25, 16px, solid);
