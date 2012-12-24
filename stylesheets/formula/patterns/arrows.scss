@@ -1,0 +1,83 @@
+@mixin arrow-base($size: 6px){
+  @include square(0);
+  content: "";
+  display: block;
+  border-width: $size;
+  border-style: solid;
+}
+
+@mixin arrow-color($color: $black){
+  border-color: $color;
+}
+
+@mixin arrow-pointing($pointing: "down") {
+  @if $pointing == "up" {
+    border-left-color: transparent !important;
+    border-right-color: transparent !important;
+    border-top: none;
+  }
+  @if $pointing == "down" {   
+    border-bottom: none;
+    border-left-color: transparent !important;
+    border-right-color: transparent !important;
+  }
+  @if $pointing == "left" {
+    border-right:none;
+    border-top-color: transparent !important;
+    border-bottom-color: transparent !important;
+  }
+  @if $pointing == "right" {
+    border-left: none;
+    border-top-color: transparent !important;
+    border-bottom-color: transparent !important;
+  }
+}
+
+@mixin arrow-side($size:6px, $side: false, $inside: false) {  
+  position: absolute;
+  @if $side == "top" {
+    @if $inside {
+      top: 0;
+    } @else {
+      top: -($size);
+    }
+    left: 50%;
+    margin-left: -($size);
+  }
+  @if $side == "left" {   
+    @if $inside {
+      left: 0;
+    } @else {
+      left: -($size);
+    }
+    top: 50%;
+    margin-top:-($size);
+  }
+  @if $side == "bottom" {
+    @if $inside {
+      bottom: 0;
+    } @else {
+      bottom: -($size);
+    }
+    left: 50%;
+    margin-left:-($size);
+  }
+  @if $side == "right" {
+    @if $inside {
+      right: 0;
+    } @else {
+      right: -($size);
+    }
+    top: 50%;
+    margin-top:-($size);
+  }
+}
+
+@mixin arrow($pointing: "down", $size: 6px, $color: red, $side: false, $inside: false){
+  &:after {
+    @include arrow-base($size);
+    @include arrow-color($color);
+    @include arrow-pointing($pointing);
+    @include arrow-side($size, $side, $inside);
+  }
+}
