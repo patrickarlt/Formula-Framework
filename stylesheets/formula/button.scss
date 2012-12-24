@@ -1,23 +1,25 @@
-.btn {
-	@include border-radius(4px);
-	@include adjust-font-size-to(15px);
-	@include rhythm-borders(1px, .25, 15px, solid);
-	@include button-style($button-default-background, $button-default-border-color, $button-default-text-color, $button-default-text-shadow);
-	@include box-shadow($button-shadow);
+// A button class that can be extended with custom styles.
+//
+// :hover             - Subtle hover highlight.
+// .selected          - Subtle hover highlight.
+// .disabled          - Dims the button to indicate it cannot be used.
+// :disabled          - Dims the button to indicate it cannot be used.
+// .small          		- Dims the button to indicate it cannot be used.
+// .large          		- Dims the button to indicate it cannot be used.
+//
+// Styleguide 1.1.
+*/
+%btn {
+	@include adjust-font-size-to(16px);
+	@include rhythm-borders(0px, .25, 16px, solid);
 	@include box-sizing(border-box);
-	border-width: 1px;
 	padding-left: 1em;
 	padding-right: 1em;
-	color: $white;
 	display: inline-block;
-	font-weight: $button-weight;
+	text-align: center;
 	
-	// states --------------------------------------------------------------------
-	&:hover {
-		@include box-shadow(none);
-		@include button-style($button-default-hover-background, $button-default-hover-border-color, $button-default-hover-text-color, $button-default-hover-text-shadow);	
+	&:hover, &.selected {
 		text-decoration:none;
-    color:$white;
 	}
 
 	&:disabled, &.disabled {
@@ -25,66 +27,6 @@
 		&:hover {
 			cursor: default;
 		}
-	}
-
-	&.block {
-		text-align: center;
-		display:block;
-	}
-
-	// styles --------------------------------------------------------------------
-	&.primary {
-		@include button-style($button-primary-background, $button-primary-border-color, $button-primary-text-color, $button-primary-text-shadow);
-		&:hover {
-			@include button-style($button-primary-hover-background, $button-primary-hover-border-color, $button-primary-hover-text-color, $button-primary-hover-text-shadow);	
-		}
-	}
-
-	&.secondary {
-		@include button-style($button-secondary-background, $button-secondary-border-color, $button-secondary-text-color, $button-secondary-text-shadow);
-		&:hover {
-			@include button-style($button-secondary-hover-background, $button-secondary-hover-border-color, $button-secondary-hover-text-color, $button-secondary-hover-text-shadow);	
-		}
-	}
-
-	&.light {
-		@include button-style($button-light-background, $button-light-border-color, $button-light-text-color, $button-light-text-shadow);
-		&:hover {
-			@include button-style($button-light-hover-background, $button-light-hover-border-color, $button-light-hover-text-color, $button-light-hover-text-shadow);	
-		}
-	}
-
-	&.dark {
-		@include button-style($button-dark-background, $button-dark-border-color, $button-dark-text-color, $button-dark-text-shadow);
-		&:hover {
-			@include button-style($button-dark-hover-background, $button-dark-hover-border-color, $button-dark-hover-text-color, $button-dark-hover-text-shadow);	
-		}
-	}
-
-	&.transparent {
-		background: transparent;
-		border-color: transparent;
-		color: $link-color;
-		&:hover {
-			color: $link-hover;
-		}
-	}
-
-	&.clear {
-		background: transparent;
-		&:hover {
-			background: transparent;
-		}
-	}
-
-	&.fill {
-		width: 100%;
-	}
-	
-	// sizes ---------------------------------------------------------------------
-	&.x-small {
-		@include adjust-font-size-to(12px);	
-		border-width:1px;
 	}
 
 	&.small {
@@ -95,43 +37,18 @@
 	&.large {
 		@include adjust-font-size-to(18px);	
 	}
-
-	&.x-large {
-		font-weight:700;
-		@include adjust-font-size-to(24px);	
-	}
-
 }
 
-// button groups ---------------------------------------------------------------
-.btn-group {
+// A button group class that can be used for grouping items extened from `%btn`.
+//
+// Styleguide 1.1.1.
+%btn-group {
 	display: inline-block;
 	@include clearfix();
-	.btn, button, .btn-dropdown {
-		@include border-radius(0px);
+	:nth-child(1n) {
+		@include border-radius(0);
 		border-left-width:0px;
 		display:block;
 		float:left;
-	}
-	> :first-child {
-		@include border-left-radius(4px);
-		border-left-width:1px;
-		.btn, button {
-			@include border-left-radius(4px);
-			border-left-width:1px;
-		}
-	}
-	> :last-child {
-		@include border-right-radius(4px);
-		.btn, button {
-			@include border-right-radius(4px);
-		}
-	}
-}
-
-.toolbar {
-	.btn-group, form, .btn, button, .btn-dropdown {
-		display: block;
-		float: left;
 	}
 }

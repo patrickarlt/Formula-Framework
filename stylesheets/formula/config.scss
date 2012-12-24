@@ -1,31 +1,16 @@
-// Compass Settings ------------------------------------------------------------
 $legacy-support-for-ie: false;
 $legacy-support-for-ie6: false;
 $legacy-support-for-ie7: false;
 $legacy-support-for-ie8: false;
 $legacy-support-for-mozilla: false;
 
-// Break Points ----------------------------------------------------------------
-$tablet-wide: 1024px;
-$tablet-tall: 768px;
-$phone:       480px;
-
-// Font Sizes ------------------------------------------------------------------
-$relative-font-sizing:  true;
-$base-font-size:        16px;
-$base-line-height:      24px;
-
-// Grid ------------------------------------------------------------------------
 $total-columns:     24;
 $container-width:   100%;
 $container-max:     90%;
 $container-gutter:  2em;
 $column-gutter:     1em;
-$grid-classes:      false;
-
-//Header Sizes -----------------------------------------------------------------
-$header-style: normal;
-$header-weight: 700;
+$footer-height:     72px;
+$header-height:     144px;
 
 $h1-size: 48px;
 $h1-lines: 2;
@@ -44,15 +29,7 @@ $h5-lines: 1;
 
 $h6-size: 14px;
 $h6-lines: 1;
-  
-// Font Stacks -----------------------------------------------------------------
-$body-font:             "Helvetica Neue", Helvetica, Arial, sans-serif;
-$header-font:           $body-font;
-$table-header-font:     $header-font;
-$definition-title-font: $header-font;
-$code-font:             monospace;
 
-// Predefined Grays ------------------------------------------------------------
 $white:                 #ffffff;
 $off-white:             hsl(0, 0, 98); // #fafafa
 $lightest-gray:         hsl(0, 0, 92); // ebebeb
@@ -64,209 +41,3 @@ $darker-gray:           hsl(0, 0, 20); // 333333
 $darkest-gray:          hsl(0, 0, 12); // 1f1f1f
 $off-black:             hsl(0, 0, 2);  // 050505
 $black:                 #000000;
-
-// Preset -colors ---------------------------------------------------------------
-$dark-blue:            #27adec;
-$light-blue:           #55c8fe;
-
-$light-orange:         #f59555;
-$dark-orange:          #e37b2f;
-
-$light-red:            #ec5555;
-$dark-red:             #de2c2c;
-
-$light-pink:           #ed54ba;
-$dark-pink:            #de3ea8;
-
-$light-purple:         #887ab6;
-$dark-purple:          #6b5aa4;
-
-$light-yellow:         #e2cf1b;
-$dark-yellow:          #d3c223;
-
-$light-green:          #89ce37;
-$dark-green:           #79b335;
-
-// Debug -----------------------------------------------------------------------
-$debug-grids:                         false;
-$debug-grids-container-color:         false;
-$debug-grids-row-color:               false;
-$debug-grids-column-color:            false;
-$debug-baseline-grid:                 false;
-$debug-baseline-color:                $lightest-gray;
-
-// Horizontal Rules
-$hr-border-bottom:  $light-gray;
-$hr-border-top: $white;
-
-// Buttons ---------------------------------------------------------------------
-$button-shadow:                       none;
-$button-weight:                       500;
-
-$button-default-background:           mix($lighter-gray, $light-gray, 50%) linear-gradient($lighter-gray, $light-gray);
-$button-default-border-color:         $light-gray;
-$button-default-text-color:           $white;
-$button-default-text-shadow:          transparentize($button-default-border-color, 0.5);
-$button-default-hover-background:     $light-gray;
-$button-default-hover-border-color:   $gray;
-$button-default-hover-text-color:     $button-default-text-color;
-$button-default-hover-text-shadow:    $button-default-text-shadow;
-
-$button-primary-background:           mix($light-blue, $dark-blue, 50%) linear-gradient($light-blue, $dark-blue);
-$button-primary-border-color:         $dark-blue;
-$button-primary-text-color:           $button-default-text-color;
-$button-primary-text-shadow:          0 1px 0 transparentize($button-primary-border-color, 0.5);
-$button-primary-hover-background:     $dark-blue;
-$button-primary-hover-border-color:   $dark-blue;
-$button-primary-hover-text-color:     $button-primary-text-color;
-$button-primary-hover-text-shadow:    $button-primary-text-shadow;
-
-$button-secondary-background:         mix($light-purple, $dark-purple, 50%) linear-gradient($light-purple, $dark-purple);
-$button-secondary-border-color:       $dark-purple;
-$button-secondary-text-color:         $button-default-text-color;
-$button-secondary-text-shadow:        0 1px 0 transparentize($button-secondary-border-color, 0.5);
-$button-secondary-hover-background:   $dark-purple;
-$button-secondary-hover-border-color: $dark-purple;
-$button-secondary-hover-text-color:   $button-default-text-color;
-$button-secondary-hover-text-shadow:  $button-secondary-text-shadow;
-
-$button-light-background:             $off-white;
-$button-light-border-color:           $lighter-gray;
-$button-light-text-color:             $light-gray;
-$button-light-text-shadow:            none;
-$button-light-hover-background:       $lightest-gray;
-$button-light-hover-border-color:     $lighter-gray;
-$button-light-hover-text-color:       $light-gray;
-$button-light-hover-text-shadow:      none;
-
-$button-dark-background:              $darker-gray;
-$button-dark-border-color:            $off-black;
-$button-dark-text-color:              $gray;
-$button-dark-text-shadow:             none;
-$button-dark-hover-background:        $off-black;
-$button-dark-hover-border-color:      $off-black;
-$button-dark-hover-text-color:        $gray;
-$button-dark-hover-text-shadow:       none;
-
-// Links -----------------------------------------------------------------------
-$link-color:              #1e547a;
-$link-hover:              #403e41;
-$disable-text-decoration: true;
-
-// Alerts ----------------------------------------------------------------------
-$alert-close-color: $white;
-
-$alert-default-background:            $off-white;
-$alert-default-border-color:          $lighter-gray;
-$alert-default-text-color:            $light-gray;
-$alert-default-text-shadow:           none;
-
-$alert-primary-background:            mix($light-blue, $dark-blue, 50%) linear-gradient($light-blue, $dark-blue);
-$alert-primary-border-color:          $dark-blue;
-$alert-primary-text-color:            $white;
-$alert-primary-text-shadow:           0 -1px 0 $light-blue;
-
-$alert-secondary-background:          mix($light-purple, $light-purple, 50%) linear-gradient($light-purple, $dark-purple);
-$alert-secondary-border-color:        $dark-purple;
-$alert-secondary-text-color:          $white;
-$alert-secondary-text-shadow:         0 -1px 0 $light-purple;
-
-$alert-success-background:            mix($light-green, $dark-green, 50%) linear-gradient($light-green, $dark-green);
-$alert-success-border-color:          $dark-green;
-$alert-success-text-color:            $white;
-$alert-success-text-shadow:           0 -1px 0 $dark-green;
-
-$alert-danger-background:             mix($light-red, $dark-red, 50%) linear-gradient($light-red, $dark-red);
-$alert-danger-border-color:           $dark-red;
-$alert-danger-text-color:             $white;
-$alert-danger-text-shadow:            0 -1px 0 $dark-red;
-
-// Panels ----------------------------------------------------------------------
-$panelClose-color: $white;
-
-$panel-default-background:            $off-white;
-$panel-default-border-color:          $lighter-gray;
-$panel-default-text-color:            inherit;
-$panel-default-text-shadow:           none;
-
-$panel-primary-background:            mix($light-blue, $dark-blue, 50%) linear-gradient($light-blue, $dark-blue);
-$panel-primary-border-color:          $dark-blue;
-$panel-primary-text-color:            $white;
-$panel-primary-text-shadow:           0 -1px 0 $dark-blue;
-
-$panel-secondary-background:          mix($light-purple, $dark-purple, 50%) linear-gradient($light-purple, $dark-purple);
-$panel-secondary-border-color:        $dark-purple;
-$panel-secondary-text-color:          $white;
-$panel-secondary-text-shadow:         0 -1px 0 $dark-purple;
-
-$panel-success-background:            mix($light-green, $dark-green, 50%) linear-gradient($light-green, $dark-green);
-$panel-success-border-color:          $dark-green;
-$panel-success-text-color:            $white;
-$panel-success-text-shadow:           0 -1px 0 $dark-green;
-
-$panel-danger-background:             mix($light-red, $dark-red, 50%) linear-gradient($light-red, $dark-red);
-$panel-danger-border-color:           $dark-red;
-$panel-danger-text-color:             $white;
-$panel-danger-text-shadow:            0 -1px 0 $dark-red;
-
-// Inputs ----------------------------------------------------------------------
-$field-shadow:         0 1px 2px rgba(0, 0, 0, 0.10), inset 0 1px 2px rgba(0,0,0,0.10);
-$field-border:         1px solid $light-gray;
-$field-border-focus:   1px solid $dark-blue;
-
-// Forms -----------------------------------------------------------------------
-$label-span:           6;
-$forms-respond-to:     $tablet-tall;
-$forms-stacked:        false;
-
-// Body ------------------------------------------------------------------------
-$body-text-color:      $darkest-gray;
-$body-background:      $off-white;
-$selection-color:      lighten($light-blue, 25);
-
-// Header ----------------------------------------------------------------------
-$header-height:        16*3px;
-$header-background:    mix($off-white, $white) linear-gradient($off-white, $white);
-$header-border-bottom: 1px solid $lighter-gray;
-$header-shadow:        0 1px 3px rgba(0,0,0,0.15);
-$fixed-header:         true;
-$logo-text-size:       28px;
-$logo-text-color:      $gray;
-
-// Nav Menu --------------------------------------------------------------------
-$nav-item-color:                      $light-gray;
-$nav-item-text-shadow:                0 1px 0 $white;
-$nav-item-hover-background:           linear-gradient($light-purple, $dark-purple);
-$nav-item-hover-color:                $white;
-$nav-item-active-background:          linear-gradient($light-blue, $dark-blue);
-$nav-item-active-color:               $white;
-$nav-divider-top:                     $lighter-gray;
-$nav-divider-bottom:                  $white;
-$nav-header-color:                    $gray;
-
-$dropdown-width:                      160px;
-$nav-dropdown-arrow:                  $lighter-gray;
-$dropdown-background:                 $off-white;
-$dropdown-border:                     $header-border-bottom;
-$dropdown-header-color:               $gray;
-$dropdown-divider-top:                $lighter-gray;
-$dropdown-divider-bottom:             $white;
-$dropdown-item-color:                 $gray;
-$dropdown-item-hover-background:      $nav-item-hover-background;
-$dropdown-item-hover-color:           $nav-item-hover-color;
-
-// Page ------------------------------------------------------------------------
-$page-padding:         $header-height;
-
-// Footer ----------------------------------------------------------------------
-$footer-height:        72px;
-$footer-background:    linear-gradient($off-black, $darkest-gray);
-$footer-border-top:    1px solid $black;
-
-// Labels ----------------------------------------------------------------------
-$label-text-color:                    $white;
-$label-default-background:            $gray;
-$label-important-background:          $dark-red;
-$label-info-background:               $dark-blue;
-$label-success-background:            $dark-green;
-$label-warning-background:            $dark-orange;

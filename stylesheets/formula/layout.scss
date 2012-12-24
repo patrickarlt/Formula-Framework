@@ -1,14 +1,7 @@
 body {
 	@include establish-baseline($base-font-size);
-	background: $body-background;
-	color: $body-text-color;
-	font-family: $body-font;
-	@if $debug-baseline-grid {
-		@include baseline-grid-background($base-font-size, $debug-baseline-color);
-	}
 }
 
-// sticky footer ---------------------------------------------------------------
 html, body {
 	height: 100%;
 }
@@ -17,46 +10,16 @@ html, body {
 	min-height: 100%;
 }
 
-#page {overflow:auto;
+#page {
+	@include container();
+	overflow:auto;
 	padding-bottom: $footer-height;
-	@if $fixed-header {
-		padding-top: $header-height;
-	}
 }
 
 #footer {
+	@include box-sizing(border-box);
 	position: relative;
 	margin-top: -($footer-height);
 	height: $footer-height;
 	clear:both;
-} 
-
-// header ----------------------------------------------------------------------
-#header {
-	@include clearfix();
-	@include background($header-background);
-	@include box-shadow($header-shadow);	
-	@if $fixed-header {
-		@include position(fixed, 0, 0, auto, 0);
-	}
-	height: $header-height;
-	border-bottom: $header-border-bottom;
-	overflow: visible;
-	z-index: 100;
-}
-
-// logo ------------------------------------------------------------------------
-.text-logo {
-	@include adjust-font-size-to($logo-text-size);
-	line-height: $header-height;
-	float: left;
-	color: $logo-text-color;
-	padding-right: 1em;
-}
-
-// footer ----------------------------------------------------------------------
-#footer {
-	@include background($footer-background);
-	@include box-sizing(border-box);
-	border-top: $footer-border-top;
 }

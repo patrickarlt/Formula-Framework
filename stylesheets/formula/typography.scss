@@ -1,45 +1,39 @@
-// headers ---------------------------------------------------------------------
-#{headers(all)} {
+h1, h2, h3, h4, h5, h6 {
 	margin: 0;
-	font-family: $header-font;
-	font-style: $header-style;
-	font-weight: $header-weight;
-	&.divider {
-		border-color: $lighter-gray;
-	}
 }
 
 h1 {
 	@include adjust-font-size-to($h1-size, $h1-lines);
-	@include header-extentions($h1-size, $h1-lines);
+	@include leader-and-trailer($h1-size, $h1-lines);
 }
 
 h2 {
 	@include adjust-font-size-to($h2-size, $h2-lines);
-	@include header-extentions($h2-size, $h2-lines);
+	@include leader-and-trailer($h2-size, $h2-lines);
 }
 
 h3 {
 	@include adjust-font-size-to($h3-size, $h3-lines);
-	@include header-extentions($h3-size, $h3-lines);
+	@include leader-and-trailer($h3-size, $h3-lines);
 }
 
 h4 {
 	@include adjust-font-size-to($h4-size, $h4-lines);
-	@include header-extentions($h4-size, $h4-lines);
+	@include leader-and-trailer($h4-size, $h4-lines);
 }
 
 h5 {
+	font-weight: 500;
 	@include adjust-font-size-to($h5-size, $h5-lines);
-	@include header-extentions($h5-size, $h5-lines);
+	@include leader-and-trailer($h5-size, $h5-lines);
 }
 
 h6 {
+	font-weight: 500;
 	@include adjust-font-size-to($h6-size, $h6-lines);
-	@include header-extentions($h6-size, $h6-lines);
+	@include leader-and-trailer($h6-size, $h6-lines);
 }
 
-// blockquote ------------------------------------------------------------------
 blockquote {
 	margin-left:0;
 	border-color: $lighter-gray;
@@ -49,36 +43,18 @@ blockquote {
 	@include trailer(1);
 }
 
-// paragraphs ------------------------------------------------------------------
 p {
 	@include leader(0);
-	//@include trailer(1, 14px);
-	//@include adjust-font-size-to(14px, 1);
-	@include trailer(1, 16px);
-	@include adjust-font-size-to(16px, 1);
-	margin-top:0;
-	&.large {
-		@include adjust-font-size-to(18px, 1);
-	}
-	&.small {
-		@include adjust-font-size-to(13px, 1);
-	}
+	@include trailer(1);
 }
 
-// links -----------------------------------------------------------------------
 a {
-	color: $link-color;
 	text-decoration: none;
 	&:hover, &:focus {
-		color: $link-hover;
-		@if (not($disable-text-decoration))	 {
-			text-decoration: underline;
-		}
 		cursor: pointer;
 	}
 }
 
-// lists -----------------------------------------------------------------------
 nav {
 	ul, ol {
 		list-style: none;
@@ -87,21 +63,15 @@ nav {
 }
 
 ul, ol {
-	//@include adjust-font-size-to(14px);
 	@include trailer(1);
 	padding-left: 1.25em;
 	margin-top:0;
-	li {
-	}
 }
 
 dl {
-	//@include adjust-font-size-to(14px);
 	margin-top:0;
 	dt {
 		@include adjust-font-size-to(18px);
-		color: $darkest-gray;
-		font-weight:700;
 	}
 	dd {
 		margin: 0;
@@ -109,66 +79,49 @@ dl {
 	}
 }
 
-// inline code -----------------------------------------------------------------
 code {
-	@include border-radius(4px);
+	@include rhythm-borders(1px, .25, 16px, solid);
 	background: $off-white;
-	border: 1px solid $lightest-gray;
-	font-family: $code-font;
-	padding: .25em;
+	border-color: $lightest-gray;
+	border-width: 1px;
+	font-family: monospace;
   white-space: pre;
 }
 
-// code block ------------------------------------------------------------------
 pre {
 	@include leader(0);
 	@include trailer(1);
 	code {
-		@include rhythm-borders(1px, .5, 16px);
-		//@include adjust-font-size-to(12px);
-		//line-height: 1.5em;
-		font-family: $code-font;
-		border-width: 1px;
+		display: block;
 		overflow: auto;
 	  word-wrap: normal;
-	  display: block;
 	}
 }
 
-// mark ------------------------------------------------------------------------
-mark {
-	padding: 2px 3px 0;
-}
-
-// abbr ------------------------------------------------------------------------
 abbr[title] {
 	cursor: help;
 }
 
-// horizontal rule -------------------------------------------------------------
 hr {
 	@include margin-leader(1);
 	@include margin-trailer(1);
 	border: none;
-	border-top:1px solid $hr-border-top;
-	border-bottom: 1px solid $hr-border-bottom;
-
+	border-top:1px solid $lightest-gray;
+	border-bottom: 1px solid $lighter-gray;
 }
 
-// helpers ---------------------------------------------------------------------
-.center-text {
-	text-align: center;
+img, object, embed, video{
+  max-width: 100%;
+  height: auto;
 }
 
-// selection color -------------------------------------------------------------
-::-moz-selection {
-    background: $selection-color;
-    text-shadow: none;
+img {
+  -ms-interpolation-mode: bicubic; 
 }
 
-::selection {
-    background: $selection-color;
-    text-shadow: none;
+small {
+	@include adjust-font-size-to(11px);
+	color: $gray;
 }
 
 img::selction {

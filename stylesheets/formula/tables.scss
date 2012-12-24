@@ -1,55 +1,62 @@
+// Basic styles for the <table>, <th>, and <td> elements.
+//
+// Styleguide 2.1.3.
 table {
 	@include leader(1);
 	@include trailer(1);
-	@include border-radius(4px);
 	width: 100%;
-	th,td{
+
+	th, td{
 		padding: $font-unit / 2;
 	}
+
 	td {
 		@include adjust-font-size-to(14px);
 	}
+
 	th {
 		@include adjust-font-size-to(18px);
-		font-family: $table-header-font;
-		text-align: left;
-	}
-	tfoot {
-		td {
-			@include adjust-font-size-to(18px);
-			font-family: $table-header-font;
-			font-weight:700;
-		}
-	}
-
-	caption {
-		@extend small;
-		text-align:left;
-		color: $gray;
-		caption-side: bottom;
-	}
-
-	// @TODO - Sortable Headers
-
-	&.bordered {
-		background: $white;
-		th, td {
-			border: 1px solid $lighter-gray;
-		}
-	}
-	&.striped {
-		tbody {
-			tr:nth-child(even) {
-				background:$lightest-gray;
-			}
-		}
-	}
-	&.hover-rows {
-		tbody {
-			tr:hover {
-				background: $light-blue;
-			}
-		}
 	}
 }
 
+// Basic styles for the <caption> element. This extends the <small> element.
+//
+// Styleguide 2.1.3.
+caption {
+	@extend small;
+	text-align: center;
+	color: $gray;
+	caption-side: bottom;
+}
+
+// Style every odd `<tr>` element.
+// @content - the content that will be applied to the `<tr>`s
+//
+// Styleguide 2.1.3.
+@mixin style-odd-rows(){
+	tr:nth-child(odd){
+		@content;
+	}
+}
+
+// Style every even `<tr>` element.
+//
+// @content - the content that will be applied to the `<tr>`s
+//
+// Styleguide 2.1.3.
+@mixin style-even-rows(){
+	tr:nth-child(even){
+		@content;
+	}
+}
+
+// Style every even nth `<td>` element in a row.
+//
+// @content - the content that will be applied to the `<td>`s
+//
+// Styleguide 2.1.3.
+@mixin style-nth-column($column){
+	tr td:nth-child(#{$column}){
+		@content;
+	}
+}

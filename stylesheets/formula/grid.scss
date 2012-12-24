@@ -1,37 +1,43 @@
-.container {
-  @include container();
+@function grid-calc($span) {
+  @return percentage(($span / $total-columns));
 }
 
-.column {
+@mixin column-style() {
+  @include box-sizing(border-box);
+  float: left;
+  padding: 0 $column-gutter/2;
+}
+
+@mixin column-width($span) {
+  width: grid-calc($span);
+}
+
+@mixin column($span) {
   @include column-style();
-  &:last-child {
-    @include last-column();
-  }
-  &.center {
-    @include center-column();
-  }
-  &.no-gutter {
-    padding: 0;
-  }
+  @include column-width($span);
 }
 
-@for $i from 1 through $total-columns {
-  .#{num-to-word($i)} { 
-    @include column-width($i); 
-  }
-  .pre-#{num-to-word($i)} {
-    @include pre($i)
-  }
-  .post-#{num-to-word($i)} {
-    @include post($i)
-  }
+@mixin last-column() {
+  float: right;
 }
 
-img, object, embed, video{
-  max-width: 100%;
-  height: auto;
+@mixin center-column {
+  float: none;
+  margin: 0 auto;
+};
+
+@mixin pre($amount) {
+  margin-left: grid-calc($amount);
 }
 
-img {
-  -ms-interpolation-mode: bicubic; 
+@mixin post($amount) {
+  margin-right: grid-calc($amount);
+}
+
+@mixin container {
+  @include box-sizing(border-box);
+  margin: 0 auto;
+  max-width: $container-max;
+  padding: 0 $container-gutter;
+  width: $container-width;
 }

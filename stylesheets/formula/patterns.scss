@@ -1,17 +1,5 @@
 @import "patterns/alerts.scss";
 @import "patterns/panels.scss";
-@import "patterns/mark.scss";
-@import "patterns/navigation.scss";
-@import "patterns/dropdowns.scss";
-@import "patterns/tooltips.scss";
-
-.title-bar {
-	@include background(linear-gradient(#887ab6, #6b5aa4));
-	@include padding-leader(1.5);
-	@include padding-trailer(1.5);
-	@include trailer(2);
-	#{headers(all)} {
-		color: $off-white;
-		text-shadow: 0 -1px 0 rgba(0,0,0,.5);
-	}
-}
+@import "patterns/labels.scss";
+@import "patterns/title-bar.scss";
+@import "patterns/toolbar.scss";

@@ -1,152 +1,102 @@
-form {
-	// eveyrthig is clearfixed
-	.field, .fields, fieldset {
-		@include clearfix();
-	}
+$all-text-inputs: "
+input[type='email'],
+input[type='number'],
+input[type='password'],
+input[type='search'],
+input[type='tel'],
+input[type='text'],
+input[type='url'],
+input[type='color'],
+input[type='date'],
+input[type='datetime'],
+input[type='datetime-local'],
+input[type='month'],
+input[type='time'],
+input[type='week'],
+select, 
+textarea";
 
-	// fields have a bottom margin
-	.field, fieldset {
-		@include trailer(1);
+%fields {
+	@include clearfix();
+	margin-left: -0.5em;
+	margin-right: -0.5em;
+	label {
+		@include column-style();
 	}
+}
 
-	// but that margin is smaller in fieldsets
-	fieldset .field {
-		@include leader(.5);	
-		@include trailer(.5);	
+fieldset {
+	@extend %fields;
+	@include box-sizing(border-box);
+	@include rhythm-borders(1px, 0);
+	@include trailer(1);
+  margin-left: 0;
+  margin-right: 0;
+	legend {
+		@include adjust-font-size-to(18px);
+		font-weight: 700;
+		margin-left: .5em;
 	}
-
-	// when fields are grouped under fieldsets or .fields they act like columns
-	.fields, fieldset {
-		margin-left: -0.5em;
-		margin-right: -0.5em;
-		.field {
-			@include column-style();
-		}
+	label {
+		@include leader(.5);
+		margin-bottom: 0;
 	}
-
-	fieldset {
-		@include clearfix();
-		@include box-sizing(border-box);
-		@include border-radius(4px);
-		@include rhythm-borders(1px, 0);
-	  margin-left: ($column-gutter/4);
-	  margin-right: ($column-gutter/4);
-		border: $field-border;
-		legend {
-			@include adjust-font-size-to(18px);
-			font-weight: 700;
-			margin-left: .5em;
-		}
-	}
-
 }
 
 label {
-	@include padding-trailer(.25);
-	text-indent: 4px;
+	@include leader(1);
+	@include trailer(1);
+	display: block;
 	white-space:nowrap;
-}
-
-.input {
-	position: relative;
-
 	input, select, textarea {
-		margin: 0;
+		margin: 5px 0 2px;
 		width: 100%;
 	}
+}
 
+form {
 	ul {
 		padding: 0;
-		margin: 0 0 0 4px;
-		@include padding-leader(.25, 14px);
+		margin: 0;
 		list-style: none;
 		li {
-			@include trailer(.5);
+			@include leader(.5);
 			label {
 				float: none;
-				padding: 0;
+				margin: 0;
 			}
 		}
 	}
-	
-	small {
-		@include adjust-font-size-to(11px);
-		color: $gray;
-		label {
-			@include adjust-font-size-to(11px, 1, 10px);
-			float: none;
-			padding: 0;
-			margin: 0;
-			width: auto;
-		}
-	}
 }
 
-.form-actions {
-	@include column($total-columns);
-}
-
-// full width inputs -----------------------------------------------------------
 input, select, textarea,  {
 	@include box-sizing(border-box);
+	display: block;
 	width:100%;
-	&:focus {
-		outline: none;
-	}
+	outline: none;
+	outline-offset: 0;
 }
 
-// checkboxes and radio buttons ------------------------------------------------
 input[type="checkbox"], input[type="radio"] {
-	display: block;
-	margin: 3px 6px 0 1px !important;
+	margin: 0px 4px 0 0 !important;
 	width: auto !important;
 	float: left;
 }
 
-// input styles ----------------------------------------------------------------
-input[type="email"],
-input[type="number"],
-input[type="password"],
-input[type="search"],
-input[type="tel"],
-input[type="text"],
-input[type="url"],
-input[type="color"],
-input[type="date"],
-input[type="datetime"],
-input[type="datetime-local"],
-input[type="month"],
-input[type="time"],
-input[type="week"],
-select, 
-textarea {
-	@include box-sizing(border-box);
-	@include box-shadow($field-shadow);
-	@include border-radius(4px);
+#{$all-text-inputs} {
 	@include rhythm-borders(1px, .25, 14px, solid);
 	@include adjust-font-size-to(14px);
 	height: rhythm(1.5, 14px);
-	border: $field-border;
-	display: block;
-	&:focus {
-		border: $field-border-focus;
-		@include box-shadow(none);
-		outline:none;
-		outline-offset: 0;
-	}
 }
 
-// textarea --------------------------------------------------------------------
 textarea {
 	height: auto;
-	resize: none;
-	width: 100%;
-	&.resizeable {
-		resize: both;
+	resize: vertical;
+	&.resize-h {
+		resize: horizontal;
 	}
 }
 
-// select ----------------------------------------------------------------------
 select {
 	@include rhythm-borders(1px, .4, 14px, solid);
 	-webkit-appearance: menulist-button;
@@ -154,14 +104,6 @@ select {
   height: 36px;
 }
 
-// select and file inputs ------------------------------------------------------
 input[type="file"] {
-	font-size: 12px;
-	width:90%;
-	margin: 8px 0;
-}
-
-// submit ----------------------------------------------------------------------
-input[type="submit"] {
-	width: auto;
+	margin: 10px 0 5px;
 }
