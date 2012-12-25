@@ -2,38 +2,77 @@ h1, h2, h3, h4, h5, h6 {
 	margin: 0;
 }
 
+// <h1> elements can have a <h1.leader> and/or <h1.trailer> class to add spacing before or after the element.
+//
+// .leader           - Subtle hover highlight.
+// .trailer          - Subtle hover highlight.
+//
+// Styleguide 5.1.1.
 h1 {
 	@include adjust-font-size-to($h1-size, $h1-lines);
 	@include leader-and-trailer($h1-size, $h1-lines);
 }
 
+// <h2> elements can have a <h2.leader> and/or <h2.trailer> class to add spacing before or after the element.
+//
+// .leader           - Subtle hover highlight.
+// .trailer          - Subtle hover highlight.
+//
+// Styleguide 5.1.2.
 h2 {
 	@include adjust-font-size-to($h2-size, $h2-lines);
 	@include leader-and-trailer($h2-size, $h2-lines);
 }
 
+// <h3> elements can have a <h3.leader> and/or <h3.trailer> class to add spacing before or after the element.
+//
+// .leader           - Subtle hover highlight.
+// .trailer          - Subtle hover highlight.
+//
+// Styleguide 5.1.2.
 h3 {
 	@include adjust-font-size-to($h3-size, $h3-lines);
 	@include leader-and-trailer($h3-size, $h3-lines);
 }
 
+// <h4> elements can have a <h4.leader> and/or <h4.trailer> class to add spacing before or after the element.
+//
+// .leader           - Subtle hover highlight.
+// .trailer          - Subtle hover highlight.
+//
+// Styleguide 5.1.4.
 h4 {
 	@include adjust-font-size-to($h4-size, $h4-lines);
 	@include leader-and-trailer($h4-size, $h4-lines);
 }
 
+// <h5> elements can have a <h5.leader> and/or <h5.trailer> class to add spacing before or after the element.
+//
+// .leader           - Subtle hover highlight.
+// .trailer          - Subtle hover highlight.
+//
+// Styleguide 5.1.5.
 h5 {
 	font-weight: 500;
 	@include adjust-font-size-to($h5-size, $h5-lines);
 	@include leader-and-trailer($h5-size, $h5-lines);
 }
 
+// <h6> elements can have a <h6.leader> and/or <h6.trailer> class to add spacing before or after the element.
+//
+// .leader           - Subtle hover highlight.
+// .trailer          - Subtle hover highlight.
+//
+// Styleguide 5.1.5.
 h6 {
 	font-weight: 500;
 	@include adjust-font-size-to($h6-size, $h6-lines);
 	@include leader-and-trailer($h6-size, $h6-lines);
 }
 
+// Blockquote elements have a slight border to the left.
+//
+// Styleguide 5.2.
 blockquote {
 	margin-left:0;
 	border-color: $lighter-gray;
@@ -82,12 +121,20 @@ dl {
 	}
 }
 
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, serif;
+  font-size: 1em;
+}
+
 code {
-	@include rhythm-borders(1px, .25, 16px, solid);
-	background: $off-white;
-	border-color: $lightest-gray;
-	border-width: 1px;
-	font-family: monospace;
+  @include rhythm-borders(1px, .25, 16px, solid);
+  background: $off-white;
+  border-color: $lightest-gray;
+  border-width: 1px;
+  font-family: monospace;
   white-space: pre;
 }
 
@@ -104,10 +151,6 @@ pre {
 	}
 }
 
-abbr[title] {
-	cursor: help;
-}
-
 hr {
 	@include margin-leader(1);
 	@include margin-trailer(1);
@@ -116,110 +159,16 @@ hr {
 	border-bottom: 1px solid $lighter-gray;
 }
 
-img, object, embed, video{
-  max-width: 100%;
-  height: auto;
-}
-
-img {
-	border: 0;
-  -ms-interpolation-mode: bicubic; 
-}
 
 small {
 	@include adjust-font-size-to(11px);
 	color: $gray;
 }
 
-img::selction {
-	background: transparent;
-}
-
-img::moz-selection {
-	background: transparent;
-}
-
 figure {
-    margin: 0;
+  margin: 0;
 }
 
-sub,
-sup {
-    font-size: 75%;
-    line-height: 0;
-    position: relative;
-    vertical-align: baseline;
-}
-
-sup {
-    top: -0.5em;
-}
-
-sub {
-    bottom: -0.25em;
-}
-
-q {
-    quotes: "\201C" "\201D" "\2018" "\2019";
-}
-
-
-svg:not(:root) {
-    overflow: hidden;
-}
-
-code,
-kbd,
-pre,
-samp {
-    font-family: monospace, serif;
-    font-size: 1em;
-}
-
-dfn {
-    font-style: italic;
-}
-
-mark {
-    background: #ff0;
-    color: #000;
-}
-
-b,
-strong {
-    font-weight: bold;
-}
-
-
-abbr[title] {
-    border-bottom: 1px dotted;
-}
-
-[hidden] {
-    display: none;
-}
-
-audio:not([controls]) {
-    display: none;
-    height: 0;
-}
-
-audio,
-canvas,
-video {
-    display: inline-block;
-}
-
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-nav,
-section,
-summary {
-    display: block;
+figcaption {
+  @extend small;
 }

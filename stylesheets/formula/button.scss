@@ -1,13 +1,15 @@
-// A button class that can be extended with custom styles.
-//
-// :hover             - Subtle hover highlight.
-// .selected          - Subtle hover highlight.
-// .disabled          - Dims the button to indicate it cannot be used.
-// :disabled          - Dims the button to indicate it cannot be used.
-// .small          		- Dims the button to indicate it cannot be used.
-// .large          		- Dims the button to indicate it cannot be used.
-//
-// Styleguide 1.1.
+/*
+A button class that can be extended with custom styles.
+
+:hover            	- Subtle hover highlight.
+.selected         	- Subtle hover highlight.
+.disabled         	- Dims the button to indicate it cannot be used.
+:disabled         	- Dims the button to indicate it cannot be used.
+.small          		- Dims the button to indicate it cannot be used.
+.large          		- Dims the button to indicate it cannot be used.
+
+Styleguide 7.1.
+*/
 %btn {
 	@include adjust-font-size-to(16px);
 	@include rhythm-borders(0px, .25, 16px, solid);
@@ -38,9 +40,11 @@
 	}
 }
 
-// A button group class that can be used for grouping items extened from `%btn`.
-//
-// Styleguide 1.1.1.
+/*
+A button group class that can be used for grouping items extened from `%btn`.
+
+Styleguide 7.1.1.
+*/
 %btn-group {
 	display: inline-block;
 	@include clearfix();

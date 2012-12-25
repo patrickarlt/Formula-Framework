@@ -1,6 +1,6 @@
 // Basic styles for the <table>, <th>, and <td> elements.
 //
-// Styleguide 2.1.3.
+// Styleguide 8.1.
 table {
 	@include leader(1);
 	@include trailer(1);
@@ -22,7 +22,7 @@ table {
 
 // Basic styles for the <caption> element. This extends the <small> element.
 //
-// Styleguide 2.1.3.
+// Styleguide 8.2.
 caption {
 	@extend small;
 	text-align: center;
@@ -31,9 +31,10 @@ caption {
 }
 
 // Style every odd `<tr>` element.
+//
 // @content - the content that will be applied to the `<tr>`s
 //
-// Styleguide 2.1.3.
+// Styleguide 8.3.1.
 @mixin style-odd-rows(){
 	tr:nth-child(odd){
 		@content;
@@ -44,7 +45,7 @@ caption {
 //
 // @content - the content that will be applied to the `<tr>`s
 //
-// Styleguide 2.1.3.
+// Styleguide 8.3.1.
 @mixin style-even-rows(){
 	tr:nth-child(even){
 		@content;
@@ -55,7 +56,7 @@ caption {
 //
 // @content - the content that will be applied to the `<td>`s
 //
-// Styleguide 2.1.3.
+// Styleguide 8.3.1.
 @mixin style-nth-column($column){
 	tr td:nth-child(#{$column}){
 		@content;
