@@ -1,0 +1,72 @@
+%media {
+  overflow:hidden;
+  > :last-child {
+    overflow:hidden;
+  }
+  > :first-child {
+    float:left;
+  }
+}
+
+%clearfix {
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+%image-replace {
+  display:block;
+  height: 0;
+  overflow:hidden;
+  @include retina-display() {
+    @include background-size(100% auto);
+  }
+}
+
+%column {
+  @include box-sizing(border-box);
+  float: left;
+  padding: 0 $column-gutter/2;
+}
+
+%container {
+  @include box-sizing(border-box);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+%article {
+  h1 {
+    @include leader($h1-leader, $h1-size);
+    @include trailer($h1-trailer, $h1-size);
+  }
+  h2 {
+    @include leader($h2-leader, $h2-size);
+    @include trailer($h2-trailer, $h2-size);
+  }
+  h3 {
+    @include leader($h3-leader, $h3-size);
+    @include trailer($h3-trailer, $h3-size);
+  }
+  h4 {
+    @include leader($h4-leader, $h4-size);
+    @include trailer($h4-trailer, $h4-size);
+  }
+  h5 {
+    @include leader($h5-leader, $h5-size);
+    @include trailer($h5-trailer, $h5-size);
+  }
+  h6{
+    @include leader($h6-leader, $h6-size);
+    @include trailer($h6-trailer, $h6-size);
+  }
+  p,ul, ol, dl, blockquote, pre {
+    @include leader(1);
+    @include trailer(1)
+  }
+}
