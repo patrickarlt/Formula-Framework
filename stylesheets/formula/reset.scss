@@ -1,3 +1,14 @@
+html {
+  font-family: sans-serif;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  @include establish-baseline($base-font-size);
+}
+
 article,
 aside,
 details,
@@ -5,10 +16,8 @@ figcaption,
 figure,
 footer,
 header,
-hgroup,
 nav,
-section,
-summary {
+section{
   display: block;
 }
 
@@ -43,7 +52,7 @@ img, object, embed, video{
 
 img {
   border: 0;
-  -ms-interpolation-mode: bicubic; 
+  -ms-interpolation-mode: bicubic;
 }
 
 

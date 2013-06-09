@@ -1,43 +1,97 @@
 $legacy-support-for-ie: false;
-$legacy-support-for-ie6: false;
-$legacy-support-for-ie7: false;
-$legacy-support-for-ie8: false;
 $legacy-support-for-mozilla: false;
+$support-for-original-webkit-gradients: false;
 
-$total-columns:     24;
-$container-width:   100%;
-$container-max:     90%;
-$container-gutter:  2em;
-$column-gutter:     1em;
-$footer-height:     72px;
-$header-height:     144px;
+$base-font-size: 16px;
+$base-line-height: 24px;
 
-$h1-size: 48px;
-$h1-lines: 2;
+$total-columns:     24 !default;
+$container-width:   100% !default;
+$container-max:     90% !default;
+$container-gutter:  2em !default;
+$column-gutter:     1em !default;
 
-$h2-size: 36px;
-$h2-lines: 2;
+$link-color: false !default;
+$link-hover: false !default;
 
-$h3-size: 24px;
-$h3-lines: 2;
+$header-leader: 2;
+$header-trailer: 1;
 
-$h4-size: 18px;
-$h4-lines: 1;
+$header-font: sans-serif;
+$header-font-weight: 700;
 
-$h5-size: 16px;
-$h5-lines: 1;
+$body-font: sans-serif;
+$body-font-weight: normal;
 
-$h6-size: 14px;
-$h6-lines: 1;
+$h1-size: 48px !default;
+$h1-lines: lines-for-font-size($h1-size) !default;
+$h1-leader: $header-leader !default;
+$h1-trailer: $header-trailer !default;
 
-$white:                 #ffffff;
-$off-white:             hsl(0, 0, 98); // #fafafa
-$lightest-gray:         hsl(0, 0, 92); // ebebeb
-$lighter-gray:          hsl(0, 0, 80); // cccccc
-$light-gray:            hsl(0, 0, 65); // a6a6a6
-$gray:                  hsl(0, 0, 50); // 808080
-$dark-gray:             hsl(0, 0, 35); // 595959
-$darker-gray:           hsl(0, 0, 20); // 333333
-$darkest-gray:          hsl(0, 0, 12); // 1f1f1f
-$off-black:             hsl(0, 0, 2);  // 050505
-$black:                 #000000;
+$h2-size: 36px !default;
+$h2-lines: lines-for-font-size($h2-size) !default;
+$h2-leader: $header-leader !default;
+$h2-trailer: $header-trailer !default;
+
+$h3-size: 24px !default;
+$h3-lines: lines-for-font-size($h3-size) !default;
+$h3-leader: $header-leader !default;
+$h3-trailer: $header-trailer !default;
+
+$h4-size: 18px !default;
+$h4-lines: lines-for-font-size($h4-size) !default;
+$h4-leader: $header-leader !default;
+$h4-trailer: $header-trailer !default;
+
+$h5-size: 16px !default;
+$h5-lines: lines-for-font-size($h5-size) !default;
+$h5-leader: $header-leader !default;
+$h5-trailer: $header-trailer !default;
+
+$h6-size: 14px !default;
+$h6-lines: lines-for-font-size($h6-size) !default;
+$h6-leader: $header-leader !default;
+$h6-trailer: $header-trailer !default;
+
+$selection-background: false !default;
+$selection-color: false !default;
+
+$white:                 hsl(0, 0, 100) !default;
+$off-white:             hsl(0, 0, 98)  !default;
+$lightest-gray:         hsl(0, 0, 92)  !default;
+$lighter-gray:          hsl(0, 0, 80)  !default;
+$light-gray:            hsl(0, 0, 65)  !default;
+$gray:                  hsl(0, 0, 50)  !default;
+$dark-gray:             hsl(0, 0, 35)  !default;
+$darker-gray:           hsl(0, 0, 20)  !default;
+$darkest-gray:          hsl(0, 0, 12)  !default;
+$off-black:             hsl(0, 0, 2)   !default;
+$black:                 hsl(0, 0, 0)   !default;
+
+$desktop:       1280px !default;
+$laptop-large:  1180px !default;
+$laptop:        1080px !default;
+$tablet-wide:   1024px !default;
+$tablet-mid:    960px  !default;
+$tablet-tall:   768px  !default;
+$phone-large:   662px  !default;
+$phone:         480px  !default;
+$phone-tall:    320px  !default;
+
+$all-text-inputs: "
+input[type='email'],
+input[type='number'],
+input[type='password'],
+input[type='search'],
+input[type='tel'],
+input[type='text'],
+input[type='url'],
+input[type='color'],
+input[type='date'],
+input[type='datetime'],
+input[type='datetime-local'],
+input[type='month'],
+input[type='time'],
+input[type='week'],
+select,
+textarea";

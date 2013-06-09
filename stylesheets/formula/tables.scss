@@ -2,32 +2,8 @@
 //
 // Styleguide 8.1.
 table {
-	@include leader(1);
-	@include trailer(1);
   border-collapse: collapse;
   border-spacing: 0;
-
-	th, td{
-		padding: $font-unit / 2;
-	}
-
-	td {
-		@include adjust-font-size-to(14px);
-	}
-
-	th {
-		@include adjust-font-size-to(18px);
-	}
-}
-
-// Basic styles for the <caption> element. This extends the <small> element.
-//
-// Styleguide 8.2.
-caption {
-	@extend small;
-	text-align: center;
-	color: $gray;
-	caption-side: bottom;
 }
 
 // Style every odd `<tr>` element.
@@ -58,7 +34,7 @@ caption {
 //
 // Styleguide 8.3.1.
 @mixin style-nth-column($column){
-	tr td:nth-child(#{$column}){
+	tr > :nth-child(#{$column}){
 		@content;
 	}
 }

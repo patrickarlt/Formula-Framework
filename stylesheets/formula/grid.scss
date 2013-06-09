@@ -2,19 +2,19 @@
   @return percentage(($span / $total-columns));
 }
 
-@mixin column-style() {
-  @include box-sizing(border-box);
-  float: left;
-  padding: 0 $column-gutter/2;
-}
-
 @mixin column-width($span) {
   width: grid-calc($span);
 }
 
-@mixin column($span) {
-  @include column-style();
+@mixin column($span, $gutter-left:$column-gutter/2, $gutter-right:$column-gutter/2) {
+  @extend %column;
   @include column-width($span);
+  @if $gutter-left {
+    padding-left: $gutter-left;
+  }
+  @if $gutter-right {
+    padding-right: $gutter-right;
+  }
 }
 
 @mixin last-column() {
@@ -34,10 +34,33 @@
   margin-right: grid-calc($amount);
 }
 
-@mixin container {
-  @include box-sizing(border-box);
-  margin: 0 auto;
-  max-width: $container-max;
-  padding: 0 $container-gutter;
-  width: $container-width;
+@mixin container($width: $container-width, $max: $container-max, $gutter: $container-gutter) {
+  @extend %container;
+  max-width: $max;
+  width: $width;
+  padding-left: $gutter;
+  padding-right: $gutter;
+}
+
+@mixin sticky-footer($wrapper: "#wrapper", $content: "#content", $footer: "#footer", $height: 72px, $offset: 72px){
+  html, body {
+    height: 100%;
+  }
+
+  #{$wrapper} {
+    min-height: 100%;
+  }
+
+  #{$content} {
+    overflow:auto;
+    padding-bottom: rhythm($lines: 3, $font-size: $base-font-size, $offset: -($offset));
+  }
+
+  #{$footer} {
+    @include box-sizing(border-box);
+    position: relative;
+    margin-top: -($height);
+    height: $height;
+    clear:both;
+  }
 }
