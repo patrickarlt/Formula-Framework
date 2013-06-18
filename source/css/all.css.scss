@@ -1,0 +1,59 @@
+@import "formula/config";
+@import "compass";
+@import "formula/reset.scss";
+@import "formula/mixins.scss";
+@import "formula/classes.scss";
+@import "formula/grid.scss";
+@import "formula/forms.scss";
+@import "formula/tables.scss";
+@import "formula/typography.scss";
+
+body {
+  @include baseline-grid-background($base-line-height, aqua);
+}
+
+article {
+  @extend %article;
+}
+
+.container {
+  @include container();
+  text-align: center;
+}
+
+.half {
+ @include column(12);
+}
+
+.third {
+  @include column(8);
+}
+
+.contains {
+  @include contains-columns();
+}
+
+.items {
+  background: blue;
+  background-clip: content-box;
+}
+
+.item {
+  background: yellow;
+  background-clip: content-box;
+}
+
+.photo {
+  background: gray;
+  background-clip: content-box;
+}
+
+.desc {
+  background: red;
+  background-clip: content-box;
+}
+
+.center {
+  @include center-column;
+}
+
