@@ -2,11 +2,13 @@ html {
   font-family: sans-serif;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
+  @include establish-baseline($base-font-size);
 }
 
 body {
   margin: 0;
-  @include establish-baseline($base-font-size);
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 
 article,
@@ -120,11 +122,11 @@ input[type="search"] {
 }
 
 button,
-html input[type="button"], /* 1 */
+html input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-  -webkit-appearance: button; /* 2 */
-  cursor: pointer; /* 3 */
+  -webkit-appearance: button;
+  cursor: pointer;
 }
 
 button,

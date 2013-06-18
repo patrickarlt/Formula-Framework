@@ -61,11 +61,11 @@
     @include leader($h5-leader, $h5-size);
     @include trailer($h5-trailer, $h5-size);
   }
-  h6{
+  h6 {
     @include leader($h6-leader, $h6-size);
     @include trailer($h6-trailer, $h6-size);
   }
-  p,ul, ol, dl, blockquote, pre {
+  p, ul, ol, dl, blockquote, pre {
     @include leader(1);
     @include trailer(1)
   }

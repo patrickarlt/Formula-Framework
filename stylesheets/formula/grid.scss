@@ -17,13 +17,20 @@
   }
 }
 
+@mixin contains-columns(){
+  @include clearfix();
+  padding-left: 0;
+  padding-right: 0;
+}
+
 @mixin last-column() {
   float: right;
 }
 
 @mixin center-column {
   float: none;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
 };
 
 @mixin pre($amount) {
@@ -34,6 +41,14 @@
   margin-right: grid-calc($amount);
 }
 
+@mixin padding-pre($amount) {
+  padding-left: grid-calc($amount);
+}
+
+@mixin padding-post($amount) {
+  padding-right: grid-calc($amount);
+}
+
 @mixin container($width: $container-width, $max: $container-max, $gutter: $container-gutter) {
   @extend %container;
   max-width: $max;
@@ -42,7 +57,7 @@
   padding-right: $gutter;
 }
 
-@mixin sticky-footer($wrapper: "#wrapper", $content: "#content", $footer: "#footer", $height: 72px, $offset: 72px){
+@mixin sticky-footer($height: 72px, $offset: 72px, $wrapper: "#wrapper", $content: "#content", $footer: "#footer"){
   html, body {
     height: 100%;
   }

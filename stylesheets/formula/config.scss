@@ -2,8 +2,11 @@ $legacy-support-for-ie: false;
 $legacy-support-for-mozilla: false;
 $support-for-original-webkit-gradients: false;
 
-$base-font-size: 16px;
-$base-line-height: 24px;
+$rhythm-unit: 'rem';
+// $rem-with-px-fallback: false;
+
+$base-font-size: 16px !default;
+$base-line-height: 24px !default;
 
 $total-columns:     24 !default;
 $container-width:   100% !default;

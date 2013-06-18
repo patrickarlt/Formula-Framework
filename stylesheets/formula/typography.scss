@@ -1,6 +1,7 @@
 #{headers(all)} {
 	font-family: $header-font;
 	font-weight: $header-font-weight;
+  margin: 0;
 }
 
 // <h1> elements can have a <h1.leader> and/or <h1.trailer> class to add spacing before or after the element.
@@ -10,7 +11,8 @@
 //
 // Styleguide 5.1.1.
 h1 {
-	@include adjust-font-size-to($h1-size, $h1-lines);
+	@include adjust-font-size-to($h1-size, lines-for-font-size($h1-size));
+
 }
 
 // <h2> elements can have a <h2.leader> and/or <h2.trailer> class to add spacing before or after the element.
@@ -20,7 +22,7 @@ h1 {
 //
 // Styleguide 5.1.2.
 h2 {
-	@include adjust-font-size-to($h2-size, $h2-lines);
+	@include adjust-font-size-to($h2-size, lines-for-font-size($h2-size));
 }
 
 // <h3> elements can have a <h3.leader> and/or <h3.trailer> class to add spacing before or after the element.
@@ -30,7 +32,7 @@ h2 {
 //
 // Styleguide 5.1.2.
 h3 {
-	@include adjust-font-size-to($h3-size, $h3-lines);
+	@include adjust-font-size-to($h3-size, lines-for-font-size($h3-size));
 }
 
 // <h4> elements can have a <h4.leader> and/or <h4.trailer> class to add spacing before or after the element.
@@ -40,7 +42,7 @@ h3 {
 //
 // Styleguide 5.1.4.
 h4 {
-	@include adjust-font-size-to($h4-size, $h4-lines);
+	@include adjust-font-size-to($h4-size, lines-for-font-size($h4-size));
 }
 
 // <h5> elements can have a <h5.leader> and/or <h5.trailer> class to add spacing before or after the element.
@@ -51,7 +53,7 @@ h4 {
 // Styleguide 5.1.5.
 h5 {
 	font-weight: 500;
-	@include adjust-font-size-to($h5-size, $h5-lines);
+	@include adjust-font-size-to($h5-size, lines-for-font-size($h5-size));
 }
 
 // <h6> elements can have a <h6.leader> and/or <h6.trailer> class to add spacing before or after the element.
@@ -62,7 +64,7 @@ h5 {
 // Styleguide 5.1.5.
 h6 {
 	font-weight: 500;
-	@include adjust-font-size-to($h6-size, $h6-lines);
+	@include adjust-font-size-to($h6-size, lines-for-font-size($h6-size));
 }
 
 // Blockquote elements have a slight border to the left.
@@ -89,7 +91,6 @@ a {
     @if $link-hover {
       color: $link-hover;
     }
-    color: $link-hover;
 		outline: 0;
 		cursor: pointer;
 	}
@@ -128,7 +129,7 @@ samp {
 }
 
 code {
-  @include rhythm-borders(1px, .25, 16px, solid);
+  @include rhythm-borders(1px, .25, 1rem, solid $black);
   font-family: monospace;
   white-space: pre;
 }

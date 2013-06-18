@@ -9,4 +9,5 @@ Gem::Specification.new do |s|
   s.files       = ["lib/formula.rb"]
   s.homepage    =
     'http://rubygems.org/gems/formula'
+  s.add_dependency('compass', '~> 0.13.alpha.4')
 end
